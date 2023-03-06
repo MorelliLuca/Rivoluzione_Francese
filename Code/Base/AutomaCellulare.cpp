@@ -88,8 +88,8 @@ void Revolution(double const G, double const g, double const Ag,
   mg->Add(gr2,"L");
   mg->Draw("a");
 
-  leg->AddEntry(gr1, "Rivoluzionari Integrazione", "p");
-  leg->AddEntry(gr2, "Reazionari Integrazione", "p");
+  leg->AddEntry(gr1, "Rivoluzionari Integrazione", "l");
+  leg->AddEntry(gr2, "Reazionari Integrazione", "l");
   leg->Draw("SAME");
 
   TPaveText *pt = new TPaveText(0.58, 0.35, .89, .59, "NDC");
@@ -109,7 +109,7 @@ void Revolution(double const G, double const g, double const Ag,
 }
 
 void automa() {
-  const int day{100};
+  const int day{50};
   double const G{0.4}, g{0.4}, Ag{0.6}, beta{0.4}, alfa{0.6}, Nr{2000},
       Np{8000}, RInit{0}, ARInit{0}, f{8};
   Nation n1{Nr, Np, RInit, ARInit, G / f, g, Ag / f, beta / f, alfa / f};

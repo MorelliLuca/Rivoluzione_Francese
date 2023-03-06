@@ -24,10 +24,10 @@ void Revolution(){
    std::vector<double> k1(4,0), k2(4,0), k3(4,0), k4(4,0);
    std::vector<double> x={Nr[0],Np[0],R[0],AR[0]}; 
    std::vector<double> t;
-   double FR{Nr[0]+AR[0]}, FP{Np[0]+R[0]},sus{1-exp(-FP/FR)};
+   double FR{Nr[0]+AR[0]}, FP{Np[0]+R[0]},susp{1-exp(-FP/FR)};
    for(int i{0};i<tf/h;++i)
    {
-    double pil{pilp},G{Gp*tanh(sus*pil/300)},g{gp*tanh(sus*pil)},Ag{Agp*tanh(1/pil/sus)};
+    double sus{.1*(1-exp(-(Np[i]+R[i])/(Nr[i]+AR[i])))}, pil{pilp*sin(i*h/100)},G{Gp*tanh(sus*pil/300)},g{gp*tanh(sus*pil)},Ag{Agp*tanh(1/pil/sus)};
     k1[2]=G*x[2]*x[1]+g*x[1]-Ag*x[2]*x[3];
     k1[3]=alfa*x[2]*x[0]-beta*x[1]*x[3];
     k1[1]=-k1[2];
