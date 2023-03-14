@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 21.12) (preloaded format=pdflatex 2021.12.19)  10 MAR 2023 17:49
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 21.12) (preloaded format=pdflatex 2021.12.19)  14 MAR 2023 19:40
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -677,16 +677,26 @@ Underfull \hbox (badness 10000) in paragraph at lines 55--57
  []
 
 [2]
-Underfull \hbox (badness 10000) in paragraph at lines 85--90
+Underfull \hbox (badness 10000) in paragraph at lines 85--91
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 95--97
+Underfull \hbox (badness 10000) in paragraph at lines 96--98
 
  []
 
-) [3] (main.aux (body.aux)) ) 
+[3]
+Underfull \hbox (badness 10000) in paragraph at lines 110--116
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 130--134
+
+ []
+
+) [4] (main.aux (body.aux)) ) 
 Here is how much of TeX's memory you used:
  14179 strings out of 478659
  284615 string characters out of 2845919
@@ -694,22 +704,23 @@ Here is how much of TeX's memory you used:
  32036 multiletter control sequences out of 15000+600000
  410544 words of font info for 53 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 84i,10n,89p,931b,683s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 84i,10n,89p,963b,683s stack positions out of 5000i,500n,10000p,200000b,80000s
  <C:\Users\crica\AppData\Local\MiKTeX\fonts/pk/ljf
 our/jknappen/ec/dpi600\tcrm1095.pk><C:/Users/crica/AppData/Local/Programs/MiKTe
 X/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/crica/AppData/Local/Progr
 ams/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/crica/AppData/Lo
-cal/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/crica/A
-ppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users
-/crica/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><
-C:/Users/crica/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr
-17.pfb><C:/Users/crica/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfont
-s/cm/cmr8.pfb><C:/Users/crica/AppData/Local/Programs/MiKTeX/fonts/type1/public/
-amsfonts/cm/cmsy10.pfb><C:/Users/crica/AppData/Local/Programs/MiKTeX/fonts/type
-1/public/amsfonts/cm/cmsy8.pfb>
-Output written on main.pdf (3 pages, 118016 bytes).
+cal/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/crica/A
+ppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/User
+s/crica/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb>
+<C:/Users/crica/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cm
+r10.pfb><C:/Users/crica/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfon
+ts/cm/cmr17.pfb><C:/Users/crica/AppData/Local/Programs/MiKTeX/fonts/type1/publi
+c/amsfonts/cm/cmr8.pfb><C:/Users/crica/AppData/Local/Programs/MiKTeX/fonts/type
+1/public/amsfonts/cm/cmsy10.pfb><C:/Users/crica/AppData/Local/Programs/MiKTeX/f
+onts/type1/public/amsfonts/cm/cmsy8.pfb>
+Output written on main.pdf (4 pages, 139038 bytes).
 PDF statistics:
- 65 PDF objects out of 1000 (max. 8388607)
+ 73 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 

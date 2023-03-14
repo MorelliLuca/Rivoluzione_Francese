@@ -85,6 +85,7 @@ con
 \end{equation*}
 Per alleggerire la notazione, dato che da questo momento in poi useremo sempre le variabili riscalate, quest'ultime perderanno il simbolo $ ' $ davanti e verranno scritte normalmente. \\
 All'interno della simulazione, visto che si calcolava la probabilità di ogni singolo individuo di compiere una transizione e non la variazione nel tempo dell'intero settore, tutti i parametri (con l'eccezione di $ \gamma $) sono stati divisi per 8. Questo perchè, calcolando la probabilità che avvenga una transizione, se la prima è influenzata dalla presenza o meno di un membro appartenente ad una certa categoria, andrà moltiplicata per la probabilità di incontrarlo. Nel nostro caso, ogni persona poteva interagire solo con le 8 celle adiacenti, perciò abbiamo dovuto moltiplicare per $ \frac{1}{8} $.
+\textbf{(NON SAREBBE MEGLIO METTERLO DOPO?)}
 \\\\ 
 Per poter integrare il nostro modello abbiamo diviso ogni espressione per $ \Delta t $ e, considerando intervalli di tempo abbastanza piccoli, siamo potuti passare al continuo:
 \begin{flalign*}
@@ -94,4 +95,40 @@ Per poter integrare il nostro modello abbiamo diviso ogni espressione per $ \Del
 		&\frac{dN_{R}}{dt}= -\frac{d\bar{R}}{dt}\\\nonumber
 \end{flalign*}
 Una volta ottenute queste equazioni differenziali abbiamo potuto integrarle numericamente.\\
-
+\section{Simulazione}
+Per svolgere la simulazione abbiamo utilizzato il modello dell'automa cellulare: in una griglia costituita da celle (nel nostro caso rappresentanti le persone), al tempo zero ognuna di esse si trova in uno degli stati possibili e poi, dopo un certo intervallo di tempo, varieranno contemporaneamente oppure no il proprio stato secondo le equazioni \textbf{CHE NON ABBIAMO NUMERATO} e ciò si ripeterà fino alla fine della durata prestabilita. Il cambio di stato di una cella è dipendente solo dal proprio stato attuale e da quelli delle celle adiacenti. Proprio per questo motivo si è reso necessario rinormalizzare i parametri, come spiegato nel paragrafo precedente. Inoltre, per semplicità, la nostra griglia ha come dimensione di lato la radice quadrata del numero totale di individui, pertanto tutte le nostre simulazioni sono state eseguite con una popolazione totale pari ad un quadrato perfetto. 
+Abbiamo eseguito diversi test con i seguenti parametri:
+\textbf{(INSERISCI GRAFICI E RAGIONE DEL PERCHè PROPRIO QUEI PARAMETRI)}
+\section{Integrazione}
+Il metodo utilizzato per l'integrazione del nostro modello é quello di Runge-Kutta al quarto ordine, il quale permette di approssimare una funzione conoscendone la derivata prima rispetto al tempo e le condizioni iniziali. Per una spiegazione dettagliata si veda l'appendice.
+Il nostro scopo era riuscire ad ottenere l'andamento di $ N_{P}, N_{N}, R e \bar{R} $ nel tempo partendo dalle equazioni:
+\begin{flalign*}
+	&\frac{dR}{dt}=\Gamma N_P(t) R(t)+\gamma N_P(t)-\bar{\Gamma}R(t)\bar{R}(t)\\\nonumber
+	&\frac{d\bar{R}}{dt}=\alpha N_N(t)R(t)-\beta \bar{R}(t)N_P(t)\\\nonumber
+	&\frac{dN_{P}}{dt}= -\frac{dR}{dt}\\\nonumber
+	&\frac{dN_{R}}{dt}= -\frac{d\bar{R}}{dt}\\\nonumber
+\end{flalign*}
+Considerando come unità per il tempo i giorni, abbiamo usato come dimensione dell'intervallo $ h=0.01 $ e scritto un codice che ci permettesse di visualizzare a schermo un grafico con l'andamento di rivoluzionari e reazionari. 
+Abbiamo quindi settato una durata e i valori dei parametri simili a quelli della simulazione e abbiamo ottenuto i seguenti grafici:
+\\\\
+che abbiamo poi paragonato a quelli ottenuti tramite l'automa. 
+Come si può vedere dalle figure, i risultati sono in accordo tra di loro (non so cosa dire senza immagini o altro)
+\section{Modulazione dei parametri}
+Al fine di rendere il modello più realistico abbiamo deciso di modificare i parametri relativi alla variazione dei rivoluzionari rendendoli dipendenti dal PIL, a cui abbiamo dato una variazione temporale descritta dalla funzione:
+\begin{equation}
+	content...
+\end{equation}
+e da un parametro detto "suscettibilità", dato dalla funzione: 
+\begin{equation}
+	sus(N_{P}, N_{R}, R, \bar{R}, t)= 0.1\cdot\left(1-\exp\left\{-\frac{(N_{P}(t)+R(t))}{(N_{N}(t)+\bar{R}(t))}\right\}\right)
+\end{equation}
+In particolare, i parametri sono diventati:
+\begin{flalign*}
+	&\Gamma=\Gamma_{0}\cdot\tanh\left(\frac{sus\cdot PIL}{300}\right)\\\nonumber
+	&\gamma=\gamma_{0}\cdot\tanh\left(sus\cdot PIL\right)\\\nonumber
+	&\bar{\Gamma}=\bar{\Gamma}_{0}\cdot\tanh\left(\frac{1}{sus\cdot PIL}\right)\\\nonumber
+\end{flalign*}
+Di seguito i grafici ottenuti settando i valori inziali dei parametri come quelli usati nelle sezioni precedenti:
+\\\\
+Come si può notare........
+\section*{Appendice}
