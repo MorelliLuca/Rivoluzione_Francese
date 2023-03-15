@@ -64,21 +64,25 @@ Dobbiamo ora identificare quali equazioni regolino la dinamica del sistema. Per 
 \end{itemize}
 Se consideriamo un tempo $\Delta t$ possiamo esprimere le variazioni del numero di ogni compartimento, tenendo conto delle precedenti considerazioni, con:
 
-\begin{flalign*}
-      &R(t+\Delta t)-R(t)=\Gamma N_P(t) \frac{R(t)}{N_{tot}}\Delta t+\gamma N_P(t)\Delta t-\bar{\Gamma}R(t)\frac{\bar{R}(t)}{N_{tot}}\Delta t\\\nonumber
-	  &\bar{R}(t+\Delta t)-\bar{R}(t)=\alpha N_N(t)\frac{R(t)}{N_{tot}}\Delta t-\beta \bar{R}(t)\frac{N_P(t)}{N_{tot}}\Delta t\\\nonumber
-	  &N_P(t+\Delta t)-N_P(t)=-(R(t+\Delta t)-R(t))\\\nonumber
-	  &N_N(t+\Delta t)-N_N(t)=-(\bar{R}(t+\Delta t)-\bar{R}(t))\\\nonumber
-\end{flalign*}	
+\begin{equation}
+	\begin{aligned}
+		 &R(t+\Delta t)-R(t)=\Gamma N_P(t) \frac{R(t)}{N_{tot}}\Delta t+\gamma N_P(t)\Delta t-\bar{\Gamma}R(t)\frac{\bar{R}(t)}{N_{tot}}\Delta t\\
+		&\bar{R}(t+\Delta t)-\bar{R}(t)=\alpha N_N(t)\frac{R(t)}{N_{tot}}\Delta t-\beta \bar{R}(t)\frac{N_P(t)}{N_{tot}}\Delta t\\
+		&N_P(t+\Delta t)-N_P(t)=-(R(t+\Delta t)-R(t))\\
+		&N_N(t+\Delta t)-N_N(t)=-(\bar{R}(t+\Delta t)-\bar{R}(t))\\
+	\end{aligned}     
+\end{equation}	
 $ \Gamma $ é un parametro che indica la probabilità che un povero diventi rivoluzionario in seguito al contatto con i membri di quest'ultima categoria, mentre invece $ \bar{\Gamma} $ indica la probabilità che un rivoluzionario, per via della presenza di reazionari, decida di abbandonare la propria causa e torni quindi allo stato "Normale". $\gamma$, diversamente dai primi due, riguarda la probabilità che un povero passi da "Normale" a rivoluzionario per volontà propria, senza influenze esterne. $ \alpha $ e $ \beta $ sono i due parametri relativi alla variazione dei reazionari: il primo riguarda la probabilità che un nobile diventi reazionario per via dell'aumento dei rivoltosi, mentre il secondo che un reazionario torni "Normale" in seguito alla crescita del numero dei poveri in stato "Normale" (e conseguente diminuzione di rivoluzionari). \\
 Prima di procedere nello studio del modello, al fine di semplificarlo, riscaliamo le variabili dividendole per $ N_{tot}$, che indica la popolazione totale, ovvero la somma di tutti i poveri e di tutti i ricchi. In questo modo otteniamo il seguente set di espressioni:  
 
-\begin{flalign*}
-	&R'(t+\Delta t)-R'(t)=\Gamma N'_P(t)'R'(t)\Delta t+\gamma N'_P(t)\Delta t-\bar{\Gamma}R'(t)\bar{R'}(t)\Delta t\\\nonumber
-	&\bar{R'}(t+\Delta t)-\bar{R'}(t)=\alpha N'_N(t)R'(t)\Delta t-\beta \bar{R'}(t)N'_P(t)\Delta t\\\nonumber
-	&N'_P(t+\Delta t)-N'_P(t)=-(R'(t+\Delta t)-R'(t))\\\nonumber
-	&N'_N(t+\Delta t)-N'_N(t)=-(\bar{R'}(t+\Delta t)-\bar{R'}(t))\\\nonumber
-\end{flalign*}	
+\begin{equation} \label{eq: 1.3}
+	\begin{aligned}
+		&R'(t+\Delta t)-R'(t)=\Gamma N'_P(t)'R'(t)\Delta t+\gamma N'_P(t)\Delta t-\bar{\Gamma}R'(t)\bar{R'}(t)\Delta t\\
+	&\bar{R'}(t+\Delta t)-\bar{R'}(t)=\alpha N'_N(t)R'(t)\Delta t-\beta \bar{R'}(t)N'_P(t)\Delta t\\
+	&N'_P(t+\Delta t)-N'_P(t)=-(R'(t+\Delta t)-R'(t))\\
+	&N'_N(t+\Delta t)-N'_N(t)=-(\bar{R'}(t+\Delta t)-\bar{R'}(t))\\
+	\end{aligned}
+\end{equation}	
 con 
 \begin{equation*}
 	N'_{P}(t)=\frac{N_{P}(t)}{N_{tot}} \qquad 	N'_{N}(t)=\frac{N_{N}(t)}{N_{tot}} \qquad	R'(t)=\frac{R(t)}{N_{tot}} \qquad	\bar{R'}(t)=\frac{\bar{R}(t)}{N_{tot}} 
@@ -88,26 +92,22 @@ All'interno della simulazione, visto che si calcolava la probabilità di ogni si
 \textbf{(NON SAREBBE MEGLIO METTERLO DOPO?)}
 \\\\ 
 Per poter integrare il nostro modello abbiamo diviso ogni espressione per $ \Delta t $ e, considerando intervalli di tempo abbastanza piccoli, siamo potuti passare al continuo:
-\begin{flalign*}
-		&\frac{dR}{dt}=\Gamma N_P(t) R(t)+\gamma N_P(t)-\bar{\Gamma}R(t)\bar{R}(t)\\\nonumber
-		&\frac{d\bar{R}}{dt}=\alpha N_N(t)R(t)-\beta \bar{R}(t)N_P(t)\\\nonumber
-		&\frac{dN_{P}}{dt}= -\frac{dR}{dt}\\\nonumber
-		&\frac{dN_{R}}{dt}= -\frac{d\bar{R}}{dt}\\\nonumber
-\end{flalign*}
+\begin{equation} \label{eq:1.4}
+		\begin{aligned}
+			&\frac{dR}{dt}=\Gamma N_P(t) R(t)+\gamma N_P(t)-\bar{\Gamma}R(t)\bar{R}(t)\\
+		&\frac{d\bar{R}}{dt}=\alpha N_N(t)R(t)-\beta \bar{R}(t)N_P(t)\\
+		&\frac{dN_{P}}{dt}= -\frac{dR}{dt}\\
+		&\frac{dN_{R}}{dt}= -\frac{d\bar{R}}{dt}\\
+		\end{aligned}
+\end{equation}
 Una volta ottenute queste equazioni differenziali abbiamo potuto integrarle numericamente.\\
 \section{Simulazione}
-Per svolgere la simulazione abbiamo utilizzato il modello dell'automa cellulare: in una griglia costituita da celle (nel nostro caso rappresentanti le persone), al tempo zero ognuna di esse si trova in uno degli stati possibili e poi, dopo un certo intervallo di tempo, varieranno contemporaneamente oppure no il proprio stato secondo le equazioni \textbf{CHE NON ABBIAMO NUMERATO} e ciò si ripeterà fino alla fine della durata prestabilita. Il cambio di stato di una cella è dipendente solo dal proprio stato attuale e da quelli delle celle adiacenti. Proprio per questo motivo si è reso necessario rinormalizzare i parametri, come spiegato nel paragrafo precedente. Inoltre, per semplicità, la nostra griglia ha come dimensione di lato la radice quadrata del numero totale di individui, pertanto tutte le nostre simulazioni sono state eseguite con una popolazione totale pari ad un quadrato perfetto. 
+Per svolgere la simulazione abbiamo utilizzato il modello dell'automa cellulare: in una griglia costituita da celle (nel nostro caso rappresentanti le persone), al tempo zero ognuna di esse si trova in uno degli stati possibili e poi, dopo un certo intervallo di tempo, varieranno contemporaneamente oppure no il proprio stato secondo le equazioni (\ref{eq: 1.3}) e ciò si ripeterà fino alla fine della durata prestabilita. Il cambio di stato di una cella è dipendente solo dal proprio stato attuale e da quelli delle celle adiacenti. Proprio per questo motivo si è reso necessario rinormalizzare i parametri, come spiegato nel paragrafo precedente. Inoltre, per semplicità, la nostra griglia ha come dimensione di lato la radice quadrata del numero totale di individui, pertanto tutte le nostre simulazioni sono state eseguite con una popolazione totale pari ad un quadrato perfetto. 
 Abbiamo eseguito diversi test con i seguenti parametri:
 \textbf{(INSERISCI GRAFICI E RAGIONE DEL PERCHè PROPRIO QUEI PARAMETRI)}
 \section{Integrazione}
 Il metodo utilizzato per l'integrazione del nostro modello é quello di Runge-Kutta al quarto ordine, il quale permette di approssimare una funzione conoscendone la derivata prima rispetto al tempo e le condizioni iniziali. Per una spiegazione dettagliata si veda l'appendice.
-Il nostro scopo era riuscire ad ottenere l'andamento di $ N_{P}, N_{N}, R e \bar{R} $ nel tempo partendo dalle equazioni:
-\begin{flalign*}
-	&\frac{dR}{dt}=\Gamma N_P(t) R(t)+\gamma N_P(t)-\bar{\Gamma}R(t)\bar{R}(t)\\\nonumber
-	&\frac{d\bar{R}}{dt}=\alpha N_N(t)R(t)-\beta \bar{R}(t)N_P(t)\\\nonumber
-	&\frac{dN_{P}}{dt}= -\frac{dR}{dt}\\\nonumber
-	&\frac{dN_{R}}{dt}= -\frac{d\bar{R}}{dt}\\\nonumber
-\end{flalign*}
+Il nostro scopo era riuscire ad ottenere l'andamento di $ N_{P}, N_{N}, R$ e $\bar{R} $ nel tempo partendo dalle equazioni (\ref{eq:1.4}).\\
 Considerando come unità per il tempo i giorni, abbiamo usato come dimensione dell'intervallo $ h=0.01 $ e scritto un codice che ci permettesse di visualizzare a schermo un grafico con l'andamento di rivoluzionari e reazionari. 
 Abbiamo quindi settato una durata e i valori dei parametri simili a quelli della simulazione e abbiamo ottenuto i seguenti grafici:
 \\\\
@@ -132,3 +132,29 @@ Di seguito i grafici ottenuti settando i valori inziali dei parametri come quell
 \\\\
 Come si può notare........
 \section*{Appendice}
+Per l'integrazione numerica abbiamo usato il metodo Runge-Kutta al quarto ordine, detto così perchè l'errore accumulato totale è dell'ordine di $ \mathcal{O}(h^{4}) $, mentre l'errore locale di troncamento è dell'ordine di $ \mathcal{O}(h^{5}) $. 
+In generale, dato il seguente problema:
+\begin{equation} \tag{A1}
+\frac{dx}{dt}=f(x,t)\qquad x(t_{0})=x_{0}
+\end{equation}
+dove $ x $ è la funzione che si intende approssimare, scegliendo un intervallo $ h>0 $ e definendo:
+\begin{equation} \tag{A2}
+	x_{n+1}=x_{n}+\frac{1}{6}(k_{1}+2k_{2}+2k_{3}+k_{4})h \qquad t_{n+1}=t_{n}+h
+\end{equation}
+per $ 0<n<t_{f}/h $, dove $ t_{f} $ é il tempo finale. Usando:
+\begin{equation} \tag{A3}
+	\begin{aligned}
+	&k_{1}=f(t_{n}, x_{n});\\
+	&k_{2}=f(t_{n}+\frac{h}{2}, x_{n}+h\frac{k_{1}}{2});\\
+	&k_{3}=f(t_{n}+\frac{h}{2}, x_{n}+h\frac{k_{2}}{2});\\
+	&k_{4}=f(t_{n}+h, x_{n}+hk_{3});
+\end{aligned}
+\end{equation}
+Per ogni $ n $, il valore successivo $ x_{n+1} $ da quello attuale $ x_{n} $ e dalla media pesata di quattro incrementi, i quali sono il prodotto dell'intervallo $ h $ e la pendenza data da $ f $. In particolare:
+\begin{itemize}
+	\item $ k_{1} $ é la pendenza all'inizio dell'intervallo, usando solo $ x $ 
+	\item $ k_{2} $ é quella a metà intervallo, usando $ x $ e $ k_{1} $
+	\item $ k_{3} $ è di nuovo a metà, ma usando $ x $ e $ k_{2} $
+	\item $ k_{4} $ é quella alla fine, usando $ x $ e $ k_{3} $
+\end{itemize}
+Nella media pesata, si è dato un peso maggiore a $ k_{2} $ e $ k_{3} $.
