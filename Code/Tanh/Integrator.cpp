@@ -16,18 +16,27 @@ void Revolution(){
              pilp{.5},
              Gp{0.5},
              gp{0.5},
-             Agp{0.5},
-             beta{0.4},
-             alfa{0.8},
+             Agp{0.9},
+             beta{0.1},
+             alfa{0.9},
              tf{3000};
-   std::vector<double> Nr{.5},Np{.5},R{0},AR{0};
+   std::vector<double> Nr{.2},Np{.8},R{0},AR{0};
    std::vector<double> k1(4,0), k2(4,0), k3(4,0), k4(4,0);
    std::vector<double> x={Nr[0],Np[0],R[0],AR[0]}; 
    std::vector<double> t;
-   double FR{Nr[0]+AR[0]}, FP{Np[0]+R[0]},susp{1-exp(-FP/FR)};
+   double FR{Nr[0]+AR[0]}, FP{Np[0]+R[0]},sus{1-exp(-FP/FR)};
+   bool correction{false};
    for(int i{0};i<tf/h;++i)
    {
-    double sus{.1*(1-exp(-(Np[i]+R[i])/(Nr[i]+AR[i])))}, pil{pilp*sin(i*h/100)},G{Gp*tanh(sus*pil/300)},g{gp*tanh(sus*pil)},Ag{Agp*tanh(1/pil/sus)};
+    double pil{pilp*sin(i*h/100)};
+    if(x[2]>Np[0]/2||correction){
+        pil*=(exp(-h*i/500));
+        correction=true;
+        }
+    double G{Gp*tanh(sus*pil)},
+           g{gp*tanh(sus*pil)},
+           Ag{Agp*tanh(1/pil/sus)},
+           t2{.69314718056/g};
     k1[2]=G*x[2]*x[1]+g*x[1]-Ag*x[2]*x[3];
     k1[3]=alfa*x[2]*x[0]-beta*x[1]*x[3];
     k1[1]=-k1[2];
