@@ -13,9 +13,9 @@
 
 void Revolution(){
     double const h{1e-2},
-             pilp{.5},
-             Gp{0.5},
-             gp{0.5},
+             pilp{.1},
+             Gp{0.1},
+             gp{0.1},
              Agp{0.9},
              beta{0.1},
              alfa{0.9},
@@ -28,11 +28,11 @@ void Revolution(){
    bool correction{false};
    for(int i{0};i<tf/h;++i)
    {
-    double pil{pilp*sin(i*h/100)};
-    if(x[2]>Np[0]/2||correction){
-        pil*=(exp(-h*i/500));
-        correction=true;
-        }
+    double pil;
+    if(sin(i*h/100)>0){
+     pil=pilp*(1+sin(i*h/100));
+    }else{pil=pilp;}
+        pil*=(exp(h*i/5000))-1;
     double G{Gp*tanh(sus*pil)},
            g{gp*tanh(sus*pil)},
            Ag{Agp*tanh(1/pil/sus)},
@@ -87,7 +87,7 @@ void Revolution(){
     std::copy(R.begin(), R.end(), RA);
     std::copy(AR.begin(), AR.end(), ARA);
     TMultiGraph *mg = new TMultiGraph("multiGraph","Integrazione modello rivoluzione");
-    mg->SetTitle("Integrazione modello rivoluzione;Tempo [Giorno];Frazione Persone");
+    mg->SetTitle("Integrazione carestia con intervento;Tempo [Giorno];Frazione Persone");
     TGraph* gr1 = new TGraph(tf/h,tA,RA);
     TGraph* gr2 = new TGraph(tf/h,tA,ARA);
     gr1->SetLineColor(2);
@@ -105,8 +105,9 @@ void Revolution(){
 
     TPaveText *pt = new TPaveText(0.58, 0.35, .89, .59,"NDC");
     pt->AddText("Costanti della Simulazione");
-    pt->AddText(Form("#Gamma_{0}=%g  #gamma_{0}=%g  #bar{#gamma}_{0}=%g",Gp, gp,Agp));
-    pt->AddText(Form("#alpha=%g  #beta=%g  F_{r}=%g  F_{p}=%g",alfa, beta, FR, FP));
+    pt->AddText(Form("#Gamma_{0}=%g  #gamma_{0}=%g  #bar{#Gamma}_{0}=%g",Gp, gp,Agp));
+    pt->AddText(Form("#alpha=%g  #beta=%g  F_{N}=%g  F_{P}=%g",alfa, beta, FR, FP));
+    pt->AddText("#sigma_{0}=1  #Delta Pil_{0}=0.5  #nu=#frac{1}{200#pi}  #lambda=#frac{1}{500} #tilde{R}=#frac{F_{P}}{2}");
     pt->SetFillColor(0);
     pt->SetBorderSize(4);
    // pt->AddLine(.0,0,0.,1);

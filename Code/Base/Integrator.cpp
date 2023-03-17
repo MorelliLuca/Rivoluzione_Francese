@@ -9,8 +9,8 @@
 #include <vector>
 
 void Revolution() {
-  double const h{1e-2}, G{0.1}, g{0.1}, Ag{0.6}, beta{0.4}, alfa{0.6}, tf{20};
-  std::vector<double> Nr{.2}, Np{.8}, R{0}, AR{0};
+  double const h{1e-2}, G{0.6}, g{0.1}, Ag{0.6}, beta{0.5}, alfa{0.5}, tf{30};
+  std::vector<double> Nr{.5}, Np{.5}, R{0}, AR{0};
   std::vector<double> k1(4, 0), k2(4, 0), k3(4, 0), k4(4, 0);
   std::vector<double> x = {Nr[0], Np[0], R[0], AR[0]};
   std::vector<double> t;
@@ -82,7 +82,7 @@ void Revolution() {
   TMultiGraph *mg =
       new TMultiGraph("multiGraph", "Integrazione modello rivoluzione");
   mg->SetTitle(
-      "Integrazione modello rivoluzione;Tempo [Giorno];Frazione Persone");
+      "Integrazione modello rivoluzione ;Tempo [Giorno];Frazione Persone");
   TGraph *gr1 = new TGraph(tf / h, tA, RA);
   TGraph *gr2 = new TGraph(tf / h, tA, ARA);
   gr1->SetLineColor(2);
@@ -100,9 +100,9 @@ void Revolution() {
 
   TPaveText *pt = new TPaveText(0.58, 0.35, .89, .59, "NDC");
   pt->AddText("Costanti della Simulazione");
-  pt->AddText(Form("#Gamma=%g  #gamma=%g  #bar{#gamma}=%g", G, g, Ag));
+  pt->AddText(Form("#Gamma=%g  #gamma=%g  #bar{#Gamma}=%g", G, g, Ag));
   pt->AddText(
-      Form("#alpha=%g  #beta=%g  F_{r}=%g  F_{p}=%g", alfa, beta, FR, FP));
+      Form("#alpha=%g  #beta=%g  F_{N}=%g  F_{P}=%g", alfa, beta, FR, FP));
   pt->SetFillColor(0);
   pt->SetBorderSize(4);
   // pt->AddLine(.0,0,0.,1);

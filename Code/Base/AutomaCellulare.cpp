@@ -94,9 +94,9 @@ void Revolution(double const G, double const g, double const Ag,
 
   TPaveText *pt = new TPaveText(0.58, 0.35, .89, .59, "NDC");
   pt->AddText("Costanti della Simulazione");
-  pt->AddText(Form("#Gamma=%g  #gamma=%g  #bar{#gamma}=%g", G, g, Ag));
+  pt->AddText(Form("#Gamma=%g  #gamma=%g  #bar{#Gamma}=%g", G, g, Ag));
   pt->AddText(
-      Form("#alpha=%g  #beta=%g  F_{r}=%g  F_{p}=%g", alfa, beta, FR, FP));
+      Form("#alpha=%g  #beta=%g  F_{N}=%g  F_{P}=%g", alfa, beta, FR, FP));
   pt->SetFillColor(0);
   pt->SetBorderSize(4);
   // pt->AddLine(.0,0,0.,1);
@@ -109,9 +109,9 @@ void Revolution(double const G, double const g, double const Ag,
 }
 
 void automa() {
-  const int day{50};
-  double const G{0.4}, g{0.4}, Ag{0.6}, beta{0.4}, alfa{0.6}, Nr{2000},
-      Np{8000}, RInit{0}, ARInit{0}, f{8};
+  const int day{300};
+  double const G{0.4}, g{0.1}, Ag{0.6}, beta{0.4}, alfa{0.6}, Nr{5000},
+      Np{5000}, RInit{0}, ARInit{0}, f{8};
   Nation n1{Nr, Np, RInit, ARInit, G / f, g, Ag / f, beta / f, alfa / f};
   std::vector<double> t, R, AR;
   n1.printGrid();
@@ -138,7 +138,7 @@ void automa() {
   TMultiGraph *mg =
       new TMultiGraph("multiGraph", "Integrazione modello rivoluzione");
   mg->SetTitle(
-      "Integrazione modello rivoluzione;Tempo [Giorno];Frazione Persone");
+      "Confronto integrazione simulazione;Tempo [Giorno];Frazione Persone");
   TGraph *gr1 = new TGraph(day, tArray, RArray);
   TGraph *gr2 = new TGraph(day, tArray, ARArray);
 
@@ -146,8 +146,8 @@ void automa() {
   gr2->SetMarkerColor(4);
   gr1->SetMarkerStyle(20);
   gr2->SetMarkerStyle(20);
-  gr1->SetMarkerSize(.4);
-  gr2->SetMarkerSize(.4);
+  gr1->SetMarkerSize(.6);
+  gr2->SetMarkerSize(.6);
   mg->Add(gr1,"P");
   mg->Add(gr2,"P");
 
