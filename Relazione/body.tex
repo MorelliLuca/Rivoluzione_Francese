@@ -22,7 +22,7 @@ Per questo progetto abbiamo cercato di modellizzare lo scoppio di una rivoluzion
 \vspace{20pt}
 
 \section*{Introduzione}
-L'evoluzione di vari gruppi eterogenei all'interno di una popolazione ...
+L'evoluzione di vari gruppi eterogenei all'interno di una popolazione può essere studiato sfruttando il modello multicompartimentale. Questo tipo di modello matematico é ottimo per descrivere come le persone cambino da uno stato all'altro. In particolare, è possibile che esse possano raggiungere ogni stato possibile o solo alcuni. Nel nostro caso, abbiamo utilizzato questo modello per studiare i meccanismi che portano allo scoppio di una rivoluzione e la sua soppressione. In particolare, abbiamo preso come sistema una popolazione con un elevato numero di individui che potevano, in base al loro reddito, appartenere o ai ricchi o ai poveri, e abbiamo studiato in quali condizioni i primi potevano essere spinti a insorgere e i secondi a reprimere. 
 \section{Il sistema e il modello}
 Come precedentemente detto, vogliamo studiare la dinamica di una popolazione composta da vari membri, in numero elevato, che differiscono l'uno dall'altro per il loro reddito. Queste differenze, sotto determinate condizioni, possono spingere gli individui appartenenti alla categoria più povera ad insorgere. Questa insurrezione può a sua volta portare alcuni tra i più abbienti a reprimerla con l'uso della forza.\\
 
@@ -104,6 +104,23 @@ Per poter studiare il nostro modello abbiamo diviso ogni espressione per $ \Delt
 		\end{aligned}
 \end{equation}
 \textbf{Punti di Equilibrio - Esistono e come li calcoliamo}
+\section{Integrazione}
+Le equazioni (\ref{eq:1.4}) che abbiamo descritto nella sezione \emph{label} non sono facilmente risolvibili, per questo motivo può essere opportuno integrarle numericamente. Il metodo utilizzato per l'integrazione é quello di Runge-Kutta al quarto ordine, il quale permette di approssimare una funzione conoscendone la derivata prima rispetto al tempo e le condizioni iniziali\footnote{Per una spiegazione dettagliata si veda l'appendice A}. \\
+Considerando come unità di tempo i giorni e utilizzando un passo di integrazione di $ h=0.01 \text{ giorni}$ siamo riusciti ad ottenere l'andamento di $ N_{P}, N_{N}, R$ e $\bar{R} $ nel tempo secondo le equazioni (\ref{eq:1.4}) per diversi valori iniziali e paramenti di simulazione.
+\begin{figure}[H]
+	\centering
+	\begin{subfigure}[H]{0.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{COMPENSATO.pdf}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[H]{0.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{NobiliOK.pdf}
+	\end{subfigure}
+\caption{Due esempi di integrazione del modello}
+\end{figure}
+Nel primo grafico si può notare come, pur essendoci un iniziale picco di rivoluzionari (dato dalla presenza di $ \gamma $), dopo qualche giorno i numeri di reazionari e di rivoluzionari si eguagliano. Ciò è dovuto al fatto che non solo il numero di nobili e di poveri iniziale era lo stesso, ma anche dal fatto che i parametri associati a due transizioni uguali ma opposte erano identici, portando quindi ad una convergenza.
 \section{Simulazione}
 Per verificare la validità del modello matematico appena descritto abbiamo deciso di effettuare una simulazione al calcolatore di una dinamica di popolazione. Le equazioni (\ref{modelloDiscreto}), per la loro natura discreta, si adattano molto bene al modello dell'automa cellulare: una popolazione è rappresentata in questo modello da una griglia di celle, ognuna corrispondente ad un individuo che può trovarsi in un determinato stato.
 \begin{center}
@@ -141,15 +158,22 @@ Per verificare la validità del modello matematico appena descritto abbiamo deci
 	\end{tikzpicture}
 \end{center}
 La simulazione che abbiamo realizzato fa variare lo stato di ogni cella secondo le equazioni (\ref{modelloDiscreto}) ad intervalli di tempo discreto $\Delta t$: ogni cella interagisce con quelle adiacenti\footnote{Nel nostro caso ogni cella ha 8 celle adiacenti che vengono considerate.} simulando l'incontro con altri individui, così facendo per ogni individuo, tra queste, che può indurre un transizione di stato viene probabilisticamente determinato se questa debba aver luogo o meno e si modifica quindi lo stato della cella. Il carattere probabilistico è determinato di parametri $\Gamma,\ \bar{\Gamma},\ \gamma,\ \alpha $ e $\beta$, è stato però necessario tener conto delle limitazioni della simulazione, infatti una cella può realmente interagire solamente con le otto adiacenti e non con tutta la popolazione, per questo le probabilità di transizione nelle equazioni (\ref{modelloDiscreto}) sono state riscalate di un fattore $\frac{1}{8}$ quando utilizzate nella simulazione.  \\ 
-Abbiamo eseguito diversi test con i seguenti parametri:
-
-\textbf{(INSERISCI GRAFICI E RAGIONE DEL PERCHè PROPRIO QUEI PARAMETRI)}
-\section{Integrazione}
-Le equazioni (\ref{eq:1.4}) che abbiamo descritto nella sezione \emph{label} non sono facilmente risolvibili, per questo motivo può essere opportuno integrarle numericamente. Il metodo utilizzato per l'integrazione é quello di Runge-Kutta al quarto ordine, il quale permette di approssimare una funzione conoscendone la derivata prima rispetto al tempo e le condizioni iniziali\footnote{Per una spiegazione dettagliata si veda l'appendice A}. \\
-Considerando come unità di tempo i giorni e utilizzando un passo di integrazione di $ h=0.01 \text{ giorni}$ siamo riusciti ad ottenere l'andamento di $ N_{P}, N_{N}, R$ e $\bar{R} $ nel tempo secondo le equazioni (\ref{eq:1.4}) per diversi valori iniziali e paramenti di simulazione.
-I risultati che abbiamo così  ottenuto possono essere paragonati a quelli ottenuti tramite l'automa, questo confronto è esemplificato nei grafici \emph{label} nei quali sono riportati sia i risultati della simulazione che quelli dell'integrazione per lo stesso set di parametri.\\ 
-
-Come si può vedere i risultati sono in accordo tra di loro il che ci consente di affermare che il modello matematico che abbiamo descritto costituisce una buona descrizione di una dinamica di interazione sociale.
+I risultati che abbiamo così  ottenuto possono essere paragonati a quelli ottenuti tramite l'integrazione del modello. Questo confronto è esemplificato nei grafici \emph{label} nei quali sono riportati sia i risultati della simulazione che quelli dell'integrazione per lo stesso set di parametri.\\ 
+\begin{figure}[H]
+	\centering
+	\begin{subfigure}[H]{0.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{CONFRONTO1.pdf}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[H]{0.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{Confronto2.pdf}
+	\end{subfigure}
+	\caption{Due esempi di confronto tra simulazione ed integrazione}
+\end{figure}
+Come si può notare i risultati sono abbastanza in accordo tra loro, soprattutto nel periodo transiente. Nel secondo grafico si può notare infatti come nella fase costante ci siano delle fluttuazioni nei dati simulati. In ogni caso possiamo affermare che il modello matematico che abbiamo descritto costituisce una buona descrizione di una dinamica di interazione sociale.
+Si evince inoltre come la percentuale di persone sia di fatto ciò che più influenza il successo o il fallimento della rivoluzione.
 \section{Modulazione dei parametri}
 Al fine di rendere il modello più realistico abbiamo deciso di rendere variabili i parametri relativi alla variazione dei rivoluzionari. Per prima cosa abbiamo definito una funzione che stima la differenza media di ricchezza posseduta tra un nobile e un povero $\Delta\text{Pil}$, questa ha una dipendenza temporale che può quindi influenzare lo stato della popolazione simulando vari scenari come periodi di carestie o interventi sociali da parte dello stato.\\
 Inoltre abbiamo introdotto un paramento $\sigma$ che misura la suscettibilità dei poveri alle condizioni loro condizioni economiche nell'ambiente sociale, nella fattispecie questo tiene conto di come pochi poveri non saranno molto propensi all'insurrezione mentre se è la maggior parte della popolazione a trovarsi in condizione povertà tale evento è più facile che si verifichi. Abbiamo assunto che tale parametro sia stiamo dalla seguente funzione: 
@@ -157,17 +181,21 @@ Inoltre abbiamo introdotto un paramento $\sigma$ che misura la suscettibilità d
 	\sigma= \sigma_0\left(1-\exp\left\{-\frac{F_P}{F_R}\right\}\right)
 \end{equation}
 Alla luce di queste considerazioni le probabilità di transizione diventano dipendenti da $\sigma$ e $\Delta\text{Pil}$:
-\begin{flalign*}
-	&\Gamma=\Gamma_{0}\cdot\tanh\left(\frac{\sigma\cdot PIL}{300}\right)\\\nonumber
-	&\gamma=\gamma_{0}\cdot\tanh\left(\sigma\cdot PIL\right)\\\nonumber
-	&\bar{\Gamma}=\bar{\Gamma}_{0}\cdot\tanh\left(\frac{1}{\sigma\cdot PIL}\right)\\\nonumber
-\end{flalign*}
+\begin{equation}
+	\begin{aligned}
+	&\Gamma=\Gamma_{0}\cdot\tanh\left(\frac{\sigma\cdot PIL}{300}\right)\\
+	&\gamma=\gamma_{0}\cdot\tanh\left(\sigma\cdot PIL\right)\\
+	&\bar{\Gamma}=\bar{\Gamma}_{0}\cdot\tanh\left(\frac{1}{\sigma\cdot PIL}\right)\\
+	\end{aligned}
+\end{equation}
 con questi andamenti funzionali abbiamo voluto tener conto di come la probabilità di transire in uno stato di insurrezione di un individuo sia massima quando le condizioni di povertà diventano estreme per buona parte della popolazione.\\
-\textbf{Carestie periodiche}\\
+Di seguito sono elencati i tre tipi diversi di funzioni $ \Delta Pil $ che abbiamo utilizzato e i relativi grafici:
+\begin{itemize}
+	\item \textbf{Carestie periodiche}\\
 \begin{equation}
 	\Delta\text{Pil}(t)=\Delta\text{Pil}_0\sin(2\pi\nu t) \qquad (\nu=\text{Frequenza carestia })
 \end{equation}
-\textbf{Sussidi statali}\\
+\item \textbf{Sussidi statali}\\
 \begin{equation}
 	\Delta\text{Pil}(t)=
 	\begin{cases}
@@ -175,7 +203,7 @@ con questi andamenti funzionali abbiamo voluto tener conto di come la probabilit
 		\Delta\text{Pil}_0\ e^{-\frac{t}{\lambda}} \quad \text{Altrimenti}\qquad     \text{($\lambda=$Rapidità intervento)}
 	\end{cases}
 \end{equation}
-\textbf{Carestie con sussidi}
+\item \textbf{Carestie con sussidi}
 \begin{equation}
 	\Delta\text{Pil}(t)=
 	\begin{cases}
@@ -183,7 +211,25 @@ con questi andamenti funzionali abbiamo voluto tener conto di come la probabilit
 		\Delta\text{Pil}_0\sin(2\pi\nu t)e^{-\frac{t}{\lambda}} \quad \text{Altrimenti}\quad     \text{ ($\lambda=$Rapidità intervento, $\nu=$Frequenza carestia)}
 	\end{cases}
 \end{equation}
-
+\end{itemize}
+\begin{figure}[H]
+	\centering
+	\begin{subfigure}[H]{0.6\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{SIN.pdf}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[H]{0.6\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{EXP.pdf}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[H]{0.6\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{SINEXP.pdf}
+	\end{subfigure}
+	\caption{Grafici relativi ad ogni tipo di $ \Delta Pil$}
+\end{figure}
 \newpage
 \appendix
 \section*{Appendice}
