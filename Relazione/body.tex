@@ -23,7 +23,7 @@ Per questo progetto abbiamo cercato di modellizzare lo scoppio di una rivoluzion
 
 \section*{Introduzione}
 L'evoluzione di vari gruppi eterogenei all'interno di una popolazione può essere studiato sfruttando il modello multicompartimentale. Questo tipo di modello matematico é ottimo per descrivere come le persone cambino da uno stato all'altro. In particolare, è possibile che esse possano raggiungere ogni stato possibile o solo alcuni. Nel nostro caso, abbiamo utilizzato questo modello per studiare i meccanismi che portano allo scoppio di una rivoluzione e la sua soppressione. In particolare, abbiamo preso come sistema una popolazione con un elevato numero di individui che potevano, in base al loro reddito, appartenere o ai ricchi o ai poveri, e abbiamo studiato in quali condizioni i primi potevano essere spinti a insorgere e i secondi a reprimere. 
-\section{Il sistema e il modello}
+\section{Il sistema e il modello} \label{sistema modello}
 Come precedentemente detto, vogliamo studiare la dinamica di una popolazione composta da vari membri, in numero elevato, che differiscono l'uno dall'altro per il loro reddito. Queste differenze, sotto determinate condizioni, possono spingere gli individui appartenenti alla categoria più povera ad insorgere. Questa insurrezione può a sua volta portare alcuni tra i più abbienti a reprimerla con l'uso della forza.\\
 
 Per modellizzare una popolazione eterogenea abbiamo deciso di suddividerla in due categorie, \textbf{Poveri} e \textbf{Nobili}, per le quali si considera un reddito medio caratteristico di ciascuna categoria.\\
@@ -103,9 +103,25 @@ Per poter studiare il nostro modello abbiamo diviso ogni espressione per $ \Delt
 		&\frac{dN_{R}}{dt}= -\frac{d\bar{R}}{dt}\\
 		\end{aligned}
 \end{equation}
-\textbf{Punti di Equilibrio - Esistono e come li calcoliamo}
+\subsection{Punti di equilibrio}
+Al fine di verificare l'esistenza di punti di equilibrio per il nostro sistema, definendo:
+\begin{equation}
+	F_{P}=N_{P}+R \qquad F_{N}=N_{N}+\bar{R}
+\end{equation}
+ponendo uguali a zero le variazioni di rivoluzionari e reazionari abbiamo ottenuto il sistema:
+\begin{equation}
+	\begin{cases}
+		\Gamma (F_{P}-R)R+\gamma (F_{P}-R)-\bar{\Gamma}R\bar{R}=0\\
+		\alpha (F_{N}-\bar{R})R-\beta (F_{P}-R)\bar{R}=0
+	\end{cases}
+\end{equation}
+Eseguendo alcuni passaggi algebrici\footnote{Per tutti i passaggi si veda l'appendice B} si può ottenere $ \bar{R} $ in funzione di $ R $ e sostituendolo nella seconda equazione del sistema otteniamo il seguente polinomio di terzo grado:
+\begin{equation}
+	R^{3}(\beta - \alpha)\frac{\Gamma}{\bar{\Gamma}}-R^{2}\left(F_{N}+(\beta - \alpha)\frac{\Gamma}{\bar{\Gamma}}F_{P}-(\beta - \alpha)\frac{\gamma}{\bar{\Gamma}}+\beta F_{P}\frac{\Gamma}{\bar{\Gamma}}\right)-\frac{R}{\bar{\Gamma}}\left(\gamma (\beta - \alpha)F_{P}-\beta \Gamma F^{2}_{P}-\gamma\right)-\frac{\gamma}{\bar{\Gamma}}F_{P}=0
+\end{equation}
+In quanto polinomio di grado dispari deve avere almeno una radice reale, quindi esiste un punto di equilibrio. Per trovare se fosse di massimo o di minimo abbiamo risolto graficamente. \textbf{NON MI VA DESMOS}
 \section{Integrazione}
-Le equazioni (\ref{eq:1.4}) che abbiamo descritto nella sezione \emph{label} non sono facilmente risolvibili, per questo motivo può essere opportuno integrarle numericamente. Il metodo utilizzato per l'integrazione é quello di Runge-Kutta al quarto ordine, il quale permette di approssimare una funzione conoscendone la derivata prima rispetto al tempo e le condizioni iniziali\footnote{Per una spiegazione dettagliata si veda l'appendice A}. \\
+Le equazioni (\ref{eq:1.4}) che abbiamo descritto nella sezione \emph{\ref{sistema modello}} non sono facilmente risolvibili, per questo motivo può essere opportuno integrarle numericamente. Il metodo utilizzato per l'integrazione é quello di Runge-Kutta al quarto ordine, il quale permette di approssimare una funzione conoscendone la derivata prima rispetto al tempo e le condizioni iniziali\footnote{Per una spiegazione dettagliata si veda l'appendice A}. \\
 Considerando come unità di tempo i giorni e utilizzando un passo di integrazione di $ h=0.01 \text{ giorni}$ siamo riusciti ad ottenere l'andamento di $ N_{P}, N_{N}, R$ e $\bar{R} $ nel tempo secondo le equazioni (\ref{eq:1.4}) per diversi valori iniziali e paramenti di simulazione.
 \begin{figure}[H]
 	\centering
@@ -214,17 +230,17 @@ Di seguito sono elencati i tre tipi diversi di funzioni $ \Delta Pil $ che abbia
 \end{itemize}
 \begin{figure}[H]
 	\centering
-	\begin{subfigure}[H]{0.6\textwidth}
+	\begin{subfigure}[H]{0.5\textwidth}
 		\centering
 		\includegraphics[width=\textwidth]{SIN.pdf}
 	\end{subfigure}
 	\hfill
-	\begin{subfigure}[H]{0.6\textwidth}
+	\begin{subfigure}[H]{0.5\textwidth}
 		\centering
 		\includegraphics[width=\textwidth]{EXP.pdf}
 	\end{subfigure}
 	\hfill
-	\begin{subfigure}[H]{0.6\textwidth}
+	\begin{subfigure}[H]{0.5\textwidth}
 		\centering
 		\includegraphics[width=\textwidth]{SINEXP.pdf}
 	\end{subfigure}
@@ -236,15 +252,15 @@ Di seguito sono elencati i tre tipi diversi di funzioni $ \Delta Pil $ che abbia
 \section{Metodo di Runge-Kutta 4}
 Per l'integrazione numerica abbiamo usato il metodo Runge-Kutta al quarto ordine, detto così perchè l'errore accumulato totale è dell'ordine di $ \mathcal{O}(h^{4}) $, mentre l'errore locale di troncamento è dell'ordine di $ \mathcal{O}(h^{5}) $. 
 In generale, dato il seguente problema:
-\begin{equation} \tag{A1}
+\begin{equation} 
 \frac{dx}{dt}=f(x,t)\qquad x(t_{0})=x_{0}
 \end{equation}
 dove $ x $ è la funzione che si intende approssimare, scegliendo un intervallo $ h>0 $ e definendo:
-\begin{equation} \tag{A2}
+\begin{equation} 
 	x_{n+1}=x_{n}+\frac{1}{6}(k_{1}+2k_{2}+2k_{3}+k_{4})h \qquad t_{n+1}=t_{n}+h
 \end{equation}
 per $ 0<n<t_{f}/h $, dove $ t_{f} $ é il tempo finale. Usando:
-\begin{equation} \tag{A3}
+\begin{equation} 
 	\begin{aligned}
 	&k_{1}=f(t_{n}, x_{n});\\
 	&k_{2}=f(t_{n}+\frac{h}{2}, x_{n}+h\frac{k_{1}}{2});\\
@@ -260,3 +276,28 @@ Per ogni $ n $, il valore successivo $ x_{n+1} $ da quello attuale $ x_{n} $ e d
 	\item $ k_{4} $ é quella alla fine, usando $ x $ e $ k_{3} $
 \end{itemize}
 Nella media pesata, si è dato un peso maggiore a $ k_{2} $ e $ k_{3} $.
+\section{Come ricavare il punto di equilibrio}
+Partendo dal sistema:
+\begin{equation}
+	\begin{cases}
+		\Gamma (F_{P}-R)R+\gamma (F_{P}-R)-\bar{\Gamma}R\bar{R}=0\\
+		\alpha (F_{N}-\bar{R})R-\beta (F_{P}-R)\bar{R}=0
+	\end{cases}
+\end{equation}
+riscriviamo la seconda equazione come:
+\begin{equation} \label{B2}
+	R\bar{R}(\beta - \alpha)+RF_{N}-\beta F_{P}\bar{R}=0
+\end{equation}
+mentre dalla prima equazione possiamo ricavare $ \bar{R} $ in funzione di $ R $:
+\begin{equation}
+	\bar{R}=\frac{\Gamma}{\bar{\Gamma}}(F_{P}-R)+\frac{\gamma}{\bar{\Gamma}}\frac{F_{P}-R}{R}
+\end{equation}
+A questo punto basta sostituire $\bar{R} $ nella \ref{B2} e si ottiene:
+\begin{equation}
+	R(\beta - \alpha)\left[\frac{\Gamma}{\bar{\Gamma}}(F_{P}-R)+\frac{\gamma}{\bar{\Gamma}}\frac{F_{P}-R}{R}\right]+RF_{N}-\beta F_{P}\frac{\Gamma}{\bar{\Gamma}}(F_{P}-R)+\frac{\gamma}{\bar{\Gamma}}\frac{F_{P}-R}{R}=0
+\end{equation} 
+Portando a denominatore comune si ottiene:
+\begin{equation}
+	R^{3}(\beta - \alpha)\frac{\Gamma}{\bar{\Gamma}}-R^{2}\left(F_{N}+(\beta - \alpha)\frac{\Gamma}{\bar{\Gamma}}F_{P}-(\beta - \alpha)\frac{\gamma}{\bar{\Gamma}}+\beta F_{P}\frac{\Gamma}{\bar{\Gamma}}\right)-\frac{R}{\bar{\Gamma}}\left(\gamma (\beta - \alpha)F_{P}-\beta \Gamma F^{2}_{P}-\gamma\right)-\frac{\gamma}{\bar{\Gamma}}F_{P}=0
+\end{equation}
+Risolvendo questo polinomio di terzo grado possiamo ricavare i punti di equilibrio.

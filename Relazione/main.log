@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 21.12) (preloaded format=pdflatex 2021.12.19)  18 MAR 2023 18:15
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 21.12) (preloaded format=pdflatex 2021.12.19)  19 MAR 2023 16:16
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -730,75 +730,74 @@ Underfull \hbox (badness 10000) in paragraph at lines 91--98
 <./immagini//COMPENSATO.pdf, id=19, 569.12625pt x 387.4475pt>
 File: ./immagini//COMPENSATO.pdf Graphic file (type pdf)
 <use ./immagini//COMPENSATO.pdf>
-Package pdftex.def Info: ./immagini//COMPENSATO.pdf  used on input line 114.
+Package pdftex.def Info: ./immagini//COMPENSATO.pdf  used on input line 130.
 (pdftex.def)             Requested size: 239.66309pt x 163.1584pt.
 <./immagini//NobiliOK.pdf, id=20, 569.12625pt x 387.4475pt>
 File: ./immagini//NobiliOK.pdf Graphic file (type pdf)
 <use ./immagini//NobiliOK.pdf>
-Package pdftex.def Info: ./immagini//NobiliOK.pdf  used on input line 119.
+Package pdftex.def Info: ./immagini//NobiliOK.pdf  used on input line 135.
 (pdftex.def)             Requested size: 239.66309pt x 163.1584pt.
 [3]
 <./immagini//CONFRONTO1.pdf, id=29, 569.12625pt x 387.4475pt>
 File: ./immagini//CONFRONTO1.pdf Graphic file (type pdf)
 <use ./immagini//CONFRONTO1.pdf>
-Package pdftex.def Info: ./immagini//CONFRONTO1.pdf  used on input line 166.
+Package pdftex.def Info: ./immagini//CONFRONTO1.pdf  used on input line 182.
 (pdftex.def)             Requested size: 239.66309pt x 163.1584pt.
 <./immagini//Confronto2.pdf, id=30, 569.12625pt x 387.4475pt>
 File: ./immagini//Confronto2.pdf Graphic file (type pdf)
 <use ./immagini//Confronto2.pdf>
-Package pdftex.def Info: ./immagini//Confronto2.pdf  used on input line 171.
+Package pdftex.def Info: ./immagini//Confronto2.pdf  used on input line 187.
 (pdftex.def)             Requested size: 239.66309pt x 163.1584pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 160--174
+Underfull \hbox (badness 10000) in paragraph at lines 176--190
 
  []
 
 [4 <./immagini//COMPENSATO.pdf, page is rotated 90 degrees> <./immagini//Nobili
 OK.pdf, page is rotated 90 degrees>]
-Underfull \hbox (badness 10000) in paragraph at lines 194--195
+Underfull \hbox (badness 10000) in paragraph at lines 210--211
 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 198--199
-
- []
-
-
-Overfull \hbox (9.69353pt too wide) detected at line 213
-[]\OT1/cmr/m/n/10.95 [](\OML/cmm/m/it/10.95 t\OT1/cmr/m/n/10.95 ) = []
  []
 
 [5 <./immagini//CONFRONTO1.pdf, page is rotated 90 degrees> <./immagini//Confro
 nto2.pdf, page is rotated 90 degrees>]
-<./immagini//SIN.pdf, id=211, 569.12625pt x 387.4475pt>
+Underfull \hbox (badness 10000) in paragraph at lines 214--215
+
+ []
+
+
+Overfull \hbox (9.69353pt too wide) detected at line 229
+[]\OT1/cmr/m/n/10.95 [](\OML/cmm/m/it/10.95 t\OT1/cmr/m/n/10.95 ) = []
+ []
+
+<./immagini//SIN.pdf, id=210, 569.12625pt x 387.4475pt>
 File: ./immagini//SIN.pdf Graphic file (type pdf)
 <use ./immagini//SIN.pdf>
-Package pdftex.def Info: ./immagini//SIN.pdf  used on input line 219.
-(pdftex.def)             Requested size: 293.4647pt x 199.78894pt.
-<./immagini//EXP.pdf, id=212, 569.12625pt x 387.4475pt>
+Package pdftex.def Info: ./immagini//SIN.pdf  used on input line 235.
+(pdftex.def)             Requested size: 244.55144pt x 166.48685pt.
+<./immagini//EXP.pdf, id=211, 569.12625pt x 387.4475pt>
 File: ./immagini//EXP.pdf Graphic file (type pdf)
 <use ./immagini//EXP.pdf>
-Package pdftex.def Info: ./immagini//EXP.pdf  used on input line 224.
-(pdftex.def)             Requested size: 293.4647pt x 199.78894pt.
-<./immagini//SINEXP.pdf, id=213, 569.12625pt x 387.4475pt>
+Package pdftex.def Info: ./immagini//EXP.pdf  used on input line 240.
+(pdftex.def)             Requested size: 244.55144pt x 166.48685pt.
+<./immagini//SINEXP.pdf, id=212, 569.12625pt x 387.4475pt>
 File: ./immagini//SINEXP.pdf Graphic file (type pdf)
 <use ./immagini//SINEXP.pdf>
-Package pdftex.def Info: ./immagini//SINEXP.pdf  used on input line 229.
-(pdftex.def)             Requested size: 293.4647pt x 199.78894pt.
- [6 <./immagini//SIN.pdf, page is rotated 90 degrees> <./immagini//EXP.pdf, pag
-e is rotated 90 degrees> <./immagini//SINEXP.pdf, page is rotated 90 degrees>])
- [7] (main.aux (body.aux))
+Package pdftex.def Info: ./immagini//SINEXP.pdf  used on input line 245.
+(pdftex.def)             Requested size: 244.55144pt x 166.48685pt.
+[6 <./immagini//SIN.pdf, page is rotated 90 degrees> <./immagini//EXP.pdf, page
+ is rotated 90 degrees> <./immagini//SINEXP.pdf, page is rotated 90 degrees>])
+[7] (main.aux (body.aux))
 
 LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 15723 strings out of 478659
- 315293 string characters out of 2845919
- 592756 words of memory out of 3000000
- 33557 multiletter control sequences out of 15000+600000
- 413080 words of font info for 63 fonts, out of 8000000 for 9000
+ 15730 strings out of 478659
+ 315396 string characters out of 2845919
+ 594774 words of memory out of 3000000
+ 33564 multiletter control sequences out of 15000+600000
+ 413685 words of font info for 65 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  84i,12n,89p,1043b,698s stack positions out of 5000i,500n,10000p,200000b,80000s
  <C:\Users\crica\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm
@@ -818,7 +817,7 @@ fonts/cm/cmr9.pfb><C:/Users/crica/AppData/Local/Programs/MiKTeX/fonts/type1/pub
 lic/amsfonts/cm/cmsy10.pfb><C:/Users/crica/AppData/Local/Programs/MiKTeX/fonts/
 type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/crica/AppData/Local/Programs/MiKTe
 X/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on main.pdf (7 pages, 8389644 bytes).
+Output written on main.pdf (7 pages, 8395259 bytes).
 PDF statistics:
  412 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
