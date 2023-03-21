@@ -13,10 +13,10 @@
 
 void Revolution(){
     double const h{1e-2},
-             pilp{.1},
-             Gp{0.1},
-             gp{0.1},
-             Agp{0.9},
+             pilp{.5},
+             Gp{0.5},
+             gp{0.4},
+             Agp{0.7},
              beta{0.1},
              alfa{0.9},
              tf{3000};
@@ -30,9 +30,9 @@ void Revolution(){
    {
     double pil;
     if(sin(i*h/100)>0){
-     pil=pilp*(1+sin(i*h/100));
-    }else{pil=pilp;}
-        pil*=(exp(h*i/5000))-1;
+     pil=pilp*(sin(i*h/100));
+    }else{pil=0;}
+        pil*=(exp(-h*i/500));
     double G{Gp*tanh(sus*pil)},
            g{gp*tanh(sus*pil)},
            Ag{Agp*tanh(1/pil/sus)},

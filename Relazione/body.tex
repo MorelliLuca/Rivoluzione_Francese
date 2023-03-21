@@ -22,12 +22,12 @@ Per questo progetto abbiamo cercato di modellizzare lo scoppio di una rivoluzion
 \vspace{20pt}
 
 \section*{Introduzione}
-L'evoluzione di vari gruppi eterogenei all'interno di una popolazione può essere studiato sfruttando il modello multicompartimentale. Questo tipo di modello matematico é ottimo per descrivere come le persone cambino da uno stato all'altro. In particolare, è possibile che esse possano raggiungere ogni stato possibile o solo alcuni. Nel nostro caso, abbiamo utilizzato questo modello per studiare i meccanismi che portano allo scoppio di una rivoluzione e la sua soppressione. In particolare, abbiamo preso come sistema una popolazione con un elevato numero di individui che potevano, in base al loro reddito, appartenere o ai ricchi o ai poveri, e abbiamo studiato in quali condizioni i primi potevano essere spinti a insorgere e i secondi a reprimere. 
+L'evoluzione di vari gruppi eterogenei all'interno di una popolazione può essere studiato sfruttando il modello multicompartimentale. Questo tipo di modello matematico é ottimo per descrivere per esempio interazioni tra diverse specie in un ecosistema o la diffusione in una popolazione di un virus. Nel nostro caso, abbiamo utilizzato questo modello per studiare i meccanismi che portano allo scoppio di una rivoluzione e la sua soppressione. In particolare, abbiamo preso come sistema una popolazione con un elevato numero di individui che potevano, in base al loro reddito, appartenere o ai ricchi o ai nobili\footnote{Sul modello della tripartizione in stati dell'Ancien Regime.}, e abbiamo studiato in quali condizioni i primi potevano essere spinti a insorgere e i secondi a reprimere tali insurrezioni. Inoltre questa tipologia di modelli si adatta facilmente alla simulazione al calcolatore tramite l'impiego di automi cellulare.
 \section{Il sistema e il modello} \label{sistema modello}
 Come precedentemente detto, vogliamo studiare la dinamica di una popolazione composta da vari membri, in numero elevato, che differiscono l'uno dall'altro per il loro reddito. Queste differenze, sotto determinate condizioni, possono spingere gli individui appartenenti alla categoria più povera ad insorgere. Questa insurrezione può a sua volta portare alcuni tra i più abbienti a reprimerla con l'uso della forza.\\
 
 Per modellizzare una popolazione eterogenea abbiamo deciso di suddividerla in due categorie, \textbf{Poveri} e \textbf{Nobili}, per le quali si considera un reddito medio caratteristico di ciascuna categoria.\\
-Ogni membro di questa popolazione può decidere, in base a vari fattori, di far uso della violenza per far valere le esigenze della propria categoria. Abbiamo considerato che ogni individuo può trovarsi o in uno stato di normalità o in uno stato eccitato: un membro della categoria dei Poveri nello stato \textbf{Normale} $(N_P)$ può transire allo stato di \textbf{Rivoluzionario} $(R)$, mentre un membro della categoria dei Nobili nello stato \textbf{Normale} $(N_N)$ può transire allo stato di \textbf{Reazionario} $(\bar{R})$. All'interno della stessa categoria può avvenire anche la transizione inversa, come mostrato in figura \ref{fig:CompartmentScheme}.\\
+Ogni membro di questa popolazione può decidere, in base a vari fattori, di far uso della violenza per far valere le esigenze del proprio gruppo. Abbiamo considerato che ogni individuo può trovarsi o in uno stato di normalità o in uno stato eccitato: un membro della categoria dei Poveri nello stato \textbf{Normale} $(N_P)$ può transire allo stato di \textbf{Rivoluzionario} $(R)$, mentre un membro della categoria dei Nobili nello stato \textbf{Normale} $(N_N)$ può transire allo stato di \textbf{Reazionario} $(\bar{R})$. All'interno della stessa categoria può avvenire anche la transizione inversa, come mostrato in figura \ref{fig:CompartmentScheme}.\\
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}
@@ -44,8 +44,8 @@ Ogni membro di questa popolazione può decidere, in base a vari fattori, di far 
 		\node at (5,2) {$R$};
 		\node at (1,2) {$N_P$};
     \end{tikzpicture}
-	\label{fig:CompartmentScheme}
-	\caption{Schema a compartimenti delle categorie delle persone. Con le frecce sono evidenziate le transizioni di stato che un individuo può effettuare.}
+	
+	\caption{Schema a compartimenti delle categorie delle persone. Con le frecce sono evidenziate le transizioni di stato che un individuo può effettuare.}\label{fig:CompartmentScheme}
 \end{figure}
 Per questa modellizazione abbiamo deciso, come è consueto fare, di trascurare le possibili fluttuazioni del numero totale di individui dovuti alla morte e alla nascita di persone, inoltre abbiamo considerato che un individuo non possa transire dalla categoria di Povero a quella di Nobile. Questa scelta è giustificata dall'osservazione che, seppur possibili, tali transizioni in genere sono estremamente rare. Tali considerazioni ci hanno quindi permesso di identificare 3 vincoli da imporre al modello:
 \begin{equation}
@@ -71,11 +71,11 @@ Se consideriamo un tempo $\Delta t$ possiamo esprimere le variazioni del numero 
 		&N_N(t+\Delta t)-N_N(t)=-(\bar{R}(t+\Delta t)-\bar{R}(t))\\
 	\end{aligned}     
 \end{equation}	
-dove $ \Gamma $ é un parametro che stima la probabilità che un povero diventi rivoluzionario incontrando altri rivoluzionari, mentre invece $ \bar{\Gamma} $ stima la probabilità che un rivoluzionario, per via della presenza di reazionari, ritorni allo stato Normale.  Diversamente dai precedenti parametri $\gamma$ stima la probabilità che un povero diventi rivoluzionario per volontà propria, senza influenze esterne. Infine $ \alpha $ e $ \beta $ sono i due parametri relativi alla variazione dei reazionari: il primo riguarda la probabilità che un nobile diventi reazionario mentre il secondo che un reazionario torni allo stato Normale. \\
+dove $ \Gamma $ é un parametro che stima la probabilità che un povero diventi rivoluzionario incontrando altri rivoluzionari, mentre invece $ \bar{\Gamma} $ stima la probabilità che un rivoluzionario ritorni allo stato Normale.  Diversamente dai precedenti parametri $\gamma$ stima la probabilità che un povero diventi rivoluzionario per volontà propria. Infine $ \alpha $ e $ \beta $ sono i due parametri relativi alla variazione dei reazionari: il primo riguarda la probabilità che un nobile diventi reazionario mentre il secondo che un reazionario torni allo stato Normale. \\
 Ogni parametro è quindi moltiplicato per la probabilità che il singolo individuo ne incontri un secondo che possa indurlo a transire, per esempio un povero incontri un rivoluzionario, questa probabilità è stimata dalla frazione dei secondi sulla popolazione totale. Per ottenere il numero di individui che transiscono è quindi necessario moltiplicare questa per il numero di persone che potenzialmente possono effettuare la transizione. Infine è opportuno osservare che queste probabilità sono stimate per unità di tempo, così che ogni addendo va moltiplicato per $\Delta t$ così da ottenere le variazioni di popolazione di ogni compartimento nel tempo $\Delta t$.\\
 
 
-Si osservi che, essendo lineare il sistema che abbiamo appena descritto, riscalando di un fattore $\lambda$ tutta la poplazione le equazioni \ref{modelloDiscreto} non mutano forma, questo ci ha permesso di riscalare le variabili dividendole per $ N_{tot}$, che indica la popolazione totale, in questo modo otteniamo un sistema di equazioni differenziali che esprime come variano le frazioni di ogni categoria di persone sulla popolazione totale:  
+Si osservi che riscalando di un fattore $\lambda$ tutta la poplazione le equazioni (\ref{modelloDiscreto}) non mutano forma, questo ci ha permesso di riscalare le variabili dividendole per $ N_{tot}$, che indica la popolazione totale, in questo modo otteniamo un sistema di equazioni differenziali che esprime come variano le frazioni di ogni categoria di persone sulla popolazione totale:  
 
 \begin{equation} \label{eq: 1.3}
 	\begin{aligned}
@@ -103,12 +103,11 @@ Per poter studiare il nostro modello abbiamo diviso ogni espressione per $ \Delt
 		&\frac{dN_{R}}{dt}= -\frac{d\bar{R}}{dt}\\
 		\end{aligned}
 \end{equation}
+Abbiamo quindi studiato il comportamento generale di queste equazioni per caratterizzare il modello.
 \subsection{Punti di equilibrio}
-Al fine di verificare l'esistenza di punti di equilibrio per il nostro sistema, definendo:
-\begin{equation}
-	F_{P}=N_{P}+R \qquad F_{N}=N_{N}+\bar{R}
-\end{equation}
-ponendo uguali a zero le variazioni di rivoluzionari e reazionari abbiamo ottenuto il sistema:
+Come primo passo abbiamo studiato i punti di equilibrio del sistema: ricordando i vincoli (\ref{vincoli}), ossia per la popolazione normalizzata $
+	F_{P}=N_{P}+R ,\ F_{N}=N_{N}+\bar{R}
+$, e ponendo uguali a zero le derivate prime dei rivoluzionari e reazionari abbiamo ottenuto un sistema che consente di determinare i punti cercati:
 \begin{equation}
 	\begin{cases}
 		\Gamma (F_{P}-R)R+\gamma (F_{P}-R)-\bar{\Gamma}R\bar{R}=0\\
@@ -118,8 +117,33 @@ ponendo uguali a zero le variazioni di rivoluzionari e reazionari abbiamo ottenu
 Eseguendo alcuni passaggi algebrici\footnote{Per tutti i passaggi si veda l'appendice B} si può ottenere $ \bar{R} $ in funzione di $ R $ e sostituendolo nella seconda equazione del sistema otteniamo il seguente polinomio di terzo grado:
 \begin{equation}
 	R^{3}(\beta - \alpha)\frac{\Gamma}{\bar{\Gamma}}-R^{2}\left(F_{N}+(\beta - \alpha)\frac{\Gamma}{\bar{\Gamma}}F_{P}-(\beta - \alpha)\frac{\gamma}{\bar{\Gamma}}+\beta F_{P}\frac{\Gamma}{\bar{\Gamma}}\right)-\frac{R}{\bar{\Gamma}}\left(\gamma (\beta - \alpha)F_{P}-\beta \Gamma F^{2}_{P}-\gamma\right)-\frac{\gamma}{\bar{\Gamma}}F_{P}=0
+	\label{equilibiro 3g}
 \end{equation}
-In quanto polinomio di grado dispari deve avere almeno una radice reale, quindi esiste un punto di equilibrio. Per trovare se fosse di massimo o di minimo abbiamo risolto graficamente. \textbf{NON MI VA DESMOS}
+In quanto polinomio di grado dispari questo deve avere almeno una radice reale, a meno che $\alpha=\beta$, quindi possiamo affermare che esiste in generale un punto di equilibrio. Tale punto è calcolabile tramite le formule note per ottenere le radici di un polinomio di terzo grado.\\Qual'ora $\alpha=\beta$ invece la (\ref{equilibiro 3g}) si riduca ad un polinomio di secondo grado si può osservare che questo possiede ancora radici: infatti le radici di tale polinomio sono reali se vale
+\begin{equation*}
+	\frac{\gamma^2+\beta^2\Gamma^2+F_P^2}{2\beta\Gamma F_P\gamma+4\gamma F_P F_N \gamma{\Gamma}+4\gamma F_P^2\beta \Gamma}\geq1
+\end{equation*}
+e considerando $\epsilon=\max\{\gamma.\Gamma,\bar{\Gamma},\beta,F_P,F_N\}$, che per definizione delle quantità interessate risulta minore di $1$, allora si ha:
+\begin{equation*}
+	\frac{\gamma^2+\beta^2\Gamma^2+F_P^2}{2\beta\Gamma F_P\gamma+4\gamma F_P F_N \gamma{\Gamma}+4\gamma F_P^2\beta \Gamma}\geq\frac{\gamma^2+\beta^2\Gamma^2+F_P^2}{2\epsilon^4+4\epsilon^4+4\epsilon^5}\geq 1.
+\end{equation*}
+Per ogni set di parametri abbiamo quindi determinato i punti di equilibrio, ottenuti questi è possibile studiare in un intorno di un punto di equilibrio la stabilità del sistema: detto $R_{eq},\ \bar{R}_{eq}$ rispettivamente il numero di rivoluzionari e reazionari all'equilibrio e studiando $\delta R(t)=R(t)- R_{eq}$ e $\delta \bar{R}(t)=\bar{R}(t)-\bar R_{eq}$ nel sistema linearizzato si ottiene:
+\begin{equation}
+	\begin{pmatrix}
+		\delta \dot{R}\\ 
+		\delta \dot{\bar{R}}
+	\end{pmatrix}
+	=\begin{pmatrix}
+		\Gamma(F_P-1)-\gamma+\Gamma \bar{R}_{eq} & \bar{\Gamma}R_eq\\
+		\alpha\bar{R}_{eq}-\beta R_{eq} & \alpha R_{eq}-\beta \bar{R}_{eq}
+	\end{pmatrix}
+	\begin{pmatrix}
+		\delta R\\
+		\delta \bar{R}
+	\end{pmatrix}
+\end{equation} 
+che abbiamo utilizzato per studiare il tipo di equilibrio del sistema.
+%aggiungere conti che ho fatto
 \section{Integrazione}
 Le equazioni (\ref{eq:1.4}) che abbiamo descritto nella sezione \emph{\ref{sistema modello}} non sono facilmente risolvibili, per questo motivo può essere opportuno integrarle numericamente. Il metodo utilizzato per l'integrazione é quello di Runge-Kutta al quarto ordine, il quale permette di approssimare una funzione conoscendone la derivata prima rispetto al tempo e le condizioni iniziali\footnote{Per una spiegazione dettagliata si veda l'appendice A}. \\
 Considerando come unità di tempo i giorni e utilizzando un passo di integrazione di $ h=0.01 \text{ giorni}$ siamo riusciti ad ottenere l'andamento di $ N_{P}, N_{N}, R$ e $\bar{R} $ nel tempo secondo le equazioni (\ref{eq:1.4}) per diversi valori iniziali e paramenti di simulazione.
@@ -132,11 +156,12 @@ Considerando come unità di tempo i giorni e utilizzando un passo di integrazion
 	\hfill
 	\begin{subfigure}[H]{0.49\textwidth}
 		\centering
-		\includegraphics[width=\textwidth]{NobiliOK.pdf}
+		\includegraphics[width=\textwidth]{FORZARICCHI.pdf}
 	\end{subfigure}
 \caption{Due esempi di integrazione del modello}
+\label{grafici integrazione}
 \end{figure}
-Nel primo grafico si può notare come, pur essendoci un iniziale picco di rivoluzionari (dato dalla presenza di $ \gamma $), dopo qualche giorno i numeri di reazionari e di rivoluzionari si eguagliano. Ciò è dovuto al fatto che non solo il numero di nobili e di poveri iniziale era lo stesso, ma anche dal fatto che i parametri associati a due transizioni uguali ma opposte erano identici, portando quindi ad una convergenza.
+Nei grafici in Fig.\ref{grafici integrazione} si può apprezzare lo scoppio della rivoluzione seguito dalla risposta dei nobili, infatti come abbiamo già evidenziato il punto $R=0,\ \bar{R}=0$ costituisce un punto di equilibrio instabile dato dal temine contente $\gamma$ che da origine ad una iniziale crescita esponenziale. La iniziale crescita esponenziale da origine nella maggior parte dei casi ad un picco di rivoluzionari che scema leggermente con la risposta dei reazionari. Nel primo grafico i due gruppi tendono a due punti di equilibrio vicini, questo poiché sono stati scelti parametri tali da bilanciare le due categorie, nel secondo grafico invece il numero di reazionari supera quello di rivoluzionari mantenendo quest'ultimo basso.
 \section{Simulazione}
 Per verificare la validità del modello matematico appena descritto abbiamo deciso di effettuare una simulazione al calcolatore di una dinamica di popolazione. Le equazioni (\ref{modelloDiscreto}), per la loro natura discreta, si adattano molto bene al modello dell'automa cellulare: una popolazione è rappresentata in questo modello da una griglia di celle, ognuna corrispondente ad un individuo che può trovarsi in un determinato stato.
 \begin{center}
@@ -173,8 +198,8 @@ Per verificare la validità del modello matematico appena descritto abbiamo deci
 		\node[fill=white,scale=0.8] at (7,1) {Individuo};
 	\end{tikzpicture}
 \end{center}
-La simulazione che abbiamo realizzato fa variare lo stato di ogni cella secondo le equazioni (\ref{modelloDiscreto}) ad intervalli di tempo discreto $\Delta t$: ogni cella interagisce con quelle adiacenti\footnote{Nel nostro caso ogni cella ha 8 celle adiacenti che vengono considerate.} simulando l'incontro con altri individui, così facendo per ogni individuo, tra queste, che può indurre un transizione di stato viene probabilisticamente determinato se questa debba aver luogo o meno e si modifica quindi lo stato della cella. Il carattere probabilistico è determinato di parametri $\Gamma,\ \bar{\Gamma},\ \gamma,\ \alpha $ e $\beta$, è stato però necessario tener conto delle limitazioni della simulazione, infatti una cella può realmente interagire solamente con le otto adiacenti e non con tutta la popolazione, per questo le probabilità di transizione nelle equazioni (\ref{modelloDiscreto}) sono state riscalate di un fattore $\frac{1}{8}$ quando utilizzate nella simulazione.  \\ 
-I risultati che abbiamo così  ottenuto possono essere paragonati a quelli ottenuti tramite l'integrazione del modello. Questo confronto è esemplificato nei grafici \emph{label} nei quali sono riportati sia i risultati della simulazione che quelli dell'integrazione per lo stesso set di parametri.\\ 
+La simulazione che abbiamo realizzato fa variare lo stato di ogni cella secondo le equazioni (\ref{modelloDiscreto}) ad intervalli di tempo discreto $\Delta t$: ogni cella interagisce con quelle adiacenti\footnote{Nel nostro caso ogni cella ha 8 celle adiacenti che vengono considerate.} simulando l'incontro con altri individui, così facendo per ogni individuo che può indurre un transizione di stato viene probabilisticamente determinato se questa debba aver luogo o meno e si modifica quindi lo stato della cella. Il carattere probabilistico è determinato di parametri $\Gamma,\ \bar{\Gamma},\ \gamma,\ \alpha $ e $\beta$, è stato però necessario tener conto delle limitazioni della simulazione, infatti una cella può realmente interagire solamente con le otto adiacenti e non con tutta la popolazione, per questo le probabilità di transizione nelle equazioni (\ref{modelloDiscreto}) sono state riscalate di un fattore $\frac{1}{8}$ quando utilizzate nella simulazione.  \\ 
+I risultati che abbiamo così  ottenuto possono essere paragonati a quelli ottenuti tramite l'integrazione del modello. Questo confronto è esemplificato nei grafici \ref{confromto} nei quali sono riportati sia i risultati della simulazione che quelli dell'integrazione per lo stesso set di parametri.\\ 
 \begin{figure}[H]
 	\centering
 	\begin{subfigure}[H]{0.49\textwidth}
@@ -187,30 +212,37 @@ I risultati che abbiamo così  ottenuto possono essere paragonati a quelli otten
 		\includegraphics[width=\textwidth]{Confronto2.pdf}
 	\end{subfigure}
 	\caption{Due esempi di confronto tra simulazione ed integrazione}
+	\label{confromto}
 \end{figure}
-Come si può notare i risultati sono abbastanza in accordo tra loro, soprattutto nel periodo transiente. Nel secondo grafico si può notare infatti come nella fase costante ci siano delle fluttuazioni nei dati simulati. In ogni caso possiamo affermare che il modello matematico che abbiamo descritto costituisce una buona descrizione di una dinamica di interazione sociale.
-Si evince inoltre come la percentuale di persone sia di fatto ciò che più influenza il successo o il fallimento della rivoluzione.
+Come si può notare i risultati sono abbastanza in accordo tra loro, soprattutto nel periodo transiente. Nel secondo grafico si può notare infatti come nella fase costante ci siano delle fluttuazioni nei dati simulati, questo è dovuto essenzialmente alla natura stocastica della simulazione che non riesce quindi a generare veri e propri punti di equilibrio ma oscilla attorno ad essi. In ogni caso considerando la natura della simulazione possiamo affermare che il modello matematico che abbiamo descritto costituisce una buona descrizione di una dinamica di interazione sociale.
 \section{Modulazione dei parametri}
 Al fine di rendere il modello più realistico abbiamo deciso di rendere variabili i parametri relativi alla variazione dei rivoluzionari. Per prima cosa abbiamo definito una funzione che stima la differenza media di ricchezza posseduta tra un nobile e un povero $\Delta\text{Pil}$, questa ha una dipendenza temporale che può quindi influenzare lo stato della popolazione simulando vari scenari come periodi di carestie o interventi sociali da parte dello stato.\\
-Inoltre abbiamo introdotto un paramento $\sigma$ che misura la suscettibilità dei poveri alle condizioni loro condizioni economiche nell'ambiente sociale, nella fattispecie questo tiene conto di come pochi poveri non saranno molto propensi all'insurrezione mentre se è la maggior parte della popolazione a trovarsi in condizione povertà tale evento è più facile che si verifichi. Abbiamo assunto che tale parametro sia stiamo dalla seguente funzione: 
+Inoltre abbiamo introdotto un paramento $\sigma$ che misura la suscettibilità dei poveri alle loro condizioni economiche nell'ambiente sociale, nella fattispecie questo tiene conto di come pochi poveri non saranno molto propensi all'insurrezione mentre se è la maggior parte della popolazione a trovarsi in condizione povertà tale evento è più facile che si verifichi. Abbiamo assunto che tale parametro sia stiamo dalla seguente funzione: 
 \begin{equation}
-	\sigma= \sigma_0\left(1-\exp\left\{-\frac{F_P}{F_R}\right\}\right)
+	\sigma= \sigma_0\left(1-\exp\left\{-\frac{F_P}{F_N}\right\}\right)
 \end{equation}
+questa infatti tende a $0$ per $F_P$ che tende a $0$ e a $\sigma_0$ per $F_N$ che tende a $0$.\\
 Alla luce di queste considerazioni le probabilità di transizione diventano dipendenti da $\sigma$ e $\Delta\text{Pil}$:
 \begin{equation}
 	\begin{aligned}
-	&\Gamma=\Gamma_{0}\cdot\tanh\left(\frac{\sigma\cdot PIL}{300}\right)\\
-	&\gamma=\gamma_{0}\cdot\tanh\left(\sigma\cdot PIL\right)\\
-	&\bar{\Gamma}=\bar{\Gamma}_{0}\cdot\tanh\left(\frac{1}{\sigma\cdot PIL}\right)\\
+	&\Gamma=\Gamma_{0}\cdot\tanh\left(\sigma\cdot \Delta\text{Pil}\right)\\
+	&\gamma=\gamma_{0}\cdot\tanh\left(\sigma\cdot \Delta\text{Pil}\right)\\
+	&\bar{\Gamma}=\bar{\Gamma}_{0}\cdot\tanh\left(\frac{1}{\sigma\cdot \Delta\text{Pil}}\right)\\
 	\end{aligned}
 \end{equation}
-con questi andamenti funzionali abbiamo voluto tener conto di come la probabilità di transire in uno stato di insurrezione di un individuo sia massima quando le condizioni di povertà diventano estreme per buona parte della popolazione.\\
+con questi andamenti funzionali abbiamo voluto tener conto di come la probabilità di transire in uno stato di insurrezione di un individuo sia massima quando le condizioni di povertà diventano estreme per buona parte della popolazione, infatti la tangente iperbolica funge da funzione di soglia che risulta poco sensibile per piccoli valori del suo argomento mentre invece cresce rapidamente per valori più grandi.\\
 Di seguito sono elencati i tre tipi diversi di funzioni $ \Delta Pil $ che abbiamo utilizzato e i relativi grafici:
 \begin{itemize}
 	\item \textbf{Carestie periodiche}\\
 \begin{equation}
 	\Delta\text{Pil}(t)=\Delta\text{Pil}_0\sin(2\pi\nu t) \qquad (\nu=\text{Frequenza carestia })
 \end{equation}
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.4]{SIN.pdf}
+	\caption{Integrazione del modello con simulazione di carestie periodiche.}
+\end{figure}
+Abbiamo fatto variare il parametro della povertà secondo una sinusoide solamente positiva così da simulare brevi periodi di carestie in cui la povertà cresce per poi annullarsi per brevi periodi: in questo modo il modello manifesta tante rivolte che scemano nel momento in cui la carestia cessa.\\
 \item \textbf{Sussidi statali}\\
 \begin{equation}
 	\Delta\text{Pil}(t)=
@@ -219,6 +251,12 @@ Di seguito sono elencati i tre tipi diversi di funzioni $ \Delta Pil $ che abbia
 		\Delta\text{Pil}_0\ e^{-\frac{t}{\lambda}} \quad \text{Altrimenti}\qquad     \text{($\lambda=$Rapidità intervento)}
 	\end{cases}
 \end{equation}
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.4]{EXP.pdf}
+	\caption{Integrazione del modello con simulazione di interventi esterni.}
+\end{figure}
+In questo caso abbiamo integrato il modello richiedendo che superato un certo parametro di soglia vi fosse un intervento esterno atto a diminuire la povertà così da controllare la rivoluzione. Questo tipo di interazione riesce nel suo scopo facendo decresce il numero di rivoluzionari fino ad un punto nel quale il numero di questi scende sotto a quello dei reazionari ponendo così fine alla rivolta.
 \item \textbf{Carestie con sussidi}
 \begin{equation}
 	\Delta\text{Pil}(t)=
@@ -227,25 +265,16 @@ Di seguito sono elencati i tre tipi diversi di funzioni $ \Delta Pil $ che abbia
 		\Delta\text{Pil}_0\sin(2\pi\nu t)e^{-\frac{t}{\lambda}} \quad \text{Altrimenti}\quad     \text{ ($\lambda=$Rapidità intervento, $\nu=$Frequenza carestia)}
 	\end{cases}
 \end{equation}
-\end{itemize}
 \begin{figure}[H]
 	\centering
-	\begin{subfigure}[H]{0.5\textwidth}
-		\centering
-		\includegraphics[width=\textwidth]{SIN.pdf}
-	\end{subfigure}
-	\hfill
-	\begin{subfigure}[H]{0.5\textwidth}
-		\centering
-		\includegraphics[width=\textwidth]{EXP.pdf}
-	\end{subfigure}
-	\hfill
-	\begin{subfigure}[H]{0.5\textwidth}
-		\centering
-		\includegraphics[width=\textwidth]{SINEXP.pdf}
-	\end{subfigure}
-	\caption{Grafici relativi ad ogni tipo di $ \Delta Pil$}
+	\includegraphics[scale=0.4]{SINEXP.pdf}
+	\caption{Integrazione del modello con simulazione di interventi esterni e cartestie.}
 \end{figure}
+In quest'ultimo caso abbiamo simulato una combinazione dei casi precedenti che risulta a nostro parere essere il caso più realistico. Infatti in questa simulazione si susseguono una serie di carestie che si cerca di mitigare con interventi esterni. In questo caso quello che abbiamo osservato è che le prime rivolte scoppiano e vedono una grande partecipazione da parte dei poveri mentre man mano che la situazione viene mitigata queste rivolte divengono di entità minore fino al punto in cui risultano facilmente controllabili dalla forza a disposizione dei reazionari.
+%NOTA:Le funzioni vanno modificate tenendo conto del mezzo seno positivo
+\end{itemize}
+\section{Conclusioni}
+
 \newpage
 \appendix
 \section*{Appendice}
