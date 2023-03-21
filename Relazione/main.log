@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 21.12) (preloaded format=pdflatex 2021.12.19)  21 MAR 2023 18:58
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 21.12) (preloaded format=pdflatex 2021.12.19)  21 MAR 2023 20:01
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -760,6 +760,14 @@ Underfull \hbox (badness 10000) in paragraph at lines 91--98
 
  []
 
+
+Overfull \hbox (27.33224pt too wide) detected at line 121
+[]\OML/cmm/m/it/10.95 R[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95  \OMS/cmsy/m/
+n/10.95   \OML/cmm/m/it/10.95 \OT1/cmr/m/n/10.95 )[] \OMS/cmsy/m/n/10.95   \OM
+L/cmm/m/it/10.95 R[] [] \OMS/cmsy/m/n/10.95   [] [] \OT1/cmr/m/n/10.95 + []\OML
+/cmm/m/it/10.95 F[] \OT1/cmr/m/n/10.95 = 0
+ []
+
 [3]
 <./immagini//COMPENSATO.pdf, id=27, 569.12625pt x 387.4475pt>
 File: ./immagini//COMPENSATO.pdf Graphic file (type pdf)
@@ -826,7 +834,15 @@ File: ./immagini//SINEXP.pdf Graphic file (type pdf)
 Package pdftex.def Info: ./immagini//SINEXP.pdf  used on input line 275.
 (pdftex.def)             Requested size: 227.64647pt x 154.97624pt.
 [7 <./immagini//EXP.pdf, page is rotated 90 degrees> <./immagini//SINEXP.pdf, p
-age is rotated 90 degrees>] [8]) [9] (main.aux (body.aux)) ) 
+age is rotated 90 degrees>] [8]
+Overfull \hbox (27.33224pt too wide) detected at line 336
+[]\OML/cmm/m/it/10.95 R[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95  \OMS/cmsy/m/
+n/10.95   \OML/cmm/m/it/10.95 \OT1/cmr/m/n/10.95 )[] \OMS/cmsy/m/n/10.95   \OM
+L/cmm/m/it/10.95 R[] [] \OMS/cmsy/m/n/10.95   [] [] \OT1/cmr/m/n/10.95 + []\OML
+/cmm/m/it/10.95 F[] \OT1/cmr/m/n/10.95 = 0
+ []
+
+) [9] (main.aux (body.aux)) ) 
 Here is how much of TeX's memory you used:
  17065 strings out of 478659
  336851 string characters out of 2845919
@@ -835,25 +851,24 @@ Here is how much of TeX's memory you used:
  413685 words of font info for 65 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  84i,12n,89p,1843b,698s stack positions out of 5000i,500n,10000p,200000b,80000s
- <C:\Users\crica\Ap
-pData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1095.pk><C:/Users/cri
-ca/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/
-Users/crica/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12
-.pfb><C:/Users/crica/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/
-cm/cmex10.pfb><C:/Users/crica/AppData/Local/Programs/MiKTeX/fonts/type1/public/
-amsfonts/cm/cmmi10.pfb><C:/Users/crica/AppData/Local/Programs/MiKTeX/fonts/type
-1/public/amsfonts/cm/cmmi6.pfb><C:/Users/crica/AppData/Local/Programs/MiKTeX/fo
-nts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/crica/AppData/Local/Programs/M
-iKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/crica/AppData/Local/Pr
-ograms/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/crica/AppData/
-Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/crica/A
-ppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/
-crica/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:
-/Users/crica/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy1
-0.pfb><C:/Users/crica/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts
-/cm/cmsy8.pfb><C:/Users/crica/AppData/Local/Programs/MiKTeX/fonts/type1/public/
-amsfonts/cm/cmti10.pfb>
-Output written on main.pdf (9 pages, 8405649 bytes).
+ <C:\Users\crica\AppData\Local\MiKTeX\fonts/pk/ljf
+our/jknappen/ec/dpi600\tcrm1095.pk><C:/Users/crica/AppData/Local/Programs/MiKTe
+X/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/crica/AppData/Local/Progr
+ams/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/crica/AppData/Lo
+cal/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/crica/A
+ppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/User
+s/crica/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb>
+<C:/Users/crica/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cm
+mi8.pfb><C:/Users/crica/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfon
+ts/cm/cmr10.pfb><C:/Users/crica/AppData/Local/Programs/MiKTeX/fonts/type1/publi
+c/amsfonts/cm/cmr17.pfb><C:/Users/crica/AppData/Local/Programs/MiKTeX/fonts/typ
+e1/public/amsfonts/cm/cmr6.pfb><C:/Users/crica/AppData/Local/Programs/MiKTeX/fo
+nts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/crica/AppData/Local/Programs/Mi
+KTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Users/crica/AppData/Local/Prog
+rams/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/crica/AppData/L
+ocal/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/crica/A
+ppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb>
+Output written on main.pdf (9 pages, 8405762 bytes).
 PDF statistics:
  418 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

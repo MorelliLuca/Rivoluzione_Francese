@@ -116,7 +116,7 @@ $, e ponendo uguali a zero le derivate prime dei rivoluzionari e reazionari abbi
 \end{equation}
 Eseguendo alcuni passaggi algebrici\footnote{Per tutti i passaggi si veda l'appendice B} si può ottenere $ \bar{R} $ in funzione di $ R $ e sostituendolo nella seconda equazione del sistema otteniamo il seguente polinomio di terzo grado:
 \begin{equation}
-	R^{3}(\beta - \alpha)\frac{\Gamma}{\bar{\Gamma}}-R^{2}\left(F_{N}+(\beta - \alpha)\frac{\Gamma}{\bar{\Gamma}}F_{P}-(\beta - \alpha)\frac{\gamma}{\bar{\Gamma}}+\beta F_{P}\frac{\Gamma}{\bar{\Gamma}}\right)-\frac{R}{\bar{\Gamma}}\left(\gamma (\beta - \alpha)F_{P}-\beta \Gamma F^{2}_{P}-\gamma\right)-\frac{\gamma}{\bar{\Gamma}}F_{P}=0
+	R^{3}(\beta - \alpha)\frac{\Gamma}{\bar{\Gamma}}-R^{2}\left(\alpha F_{N}+(\beta - \alpha)\frac{\Gamma}{\bar{\Gamma}}F_{P}-(\beta - \alpha)\frac{\gamma}{\bar{\Gamma}}+\beta F_{P}\frac{\Gamma}{\bar{\Gamma}}\right)-\frac{R}{\bar{\Gamma}}\left(\gamma (\beta - \alpha)F_{P}-\beta \Gamma F^{2}_{P}+\gamma\beta F_{P}\right)+\frac{\gamma\beta}{\bar{\Gamma}}F^{2}_{P}=0
 	\label{equilibiro 3g}
 \end{equation}
 In quanto polinomio di grado dispari, a meno che $\alpha=\beta$, questo deve avere almeno una radice reale quindi possiamo affermare che esiste in generale un punto di equilibrio. Tale punto è calcolabile tramite le formule note per ottenere le radici di un polinomio di terzo grado.\\Qualora $\alpha=\beta$ invece la (\ref{equilibiro 3g}) si riduce ad un polinomio di secondo grado, ma si può osservare che questo possiede ancora radici reali se i parametri sono di ordini di grandezza comparabili. \\Infatti le radici di tale polinomio sono reali se vale
@@ -134,8 +134,8 @@ Per ogni set di parametri abbiamo quindi determinato i punti di equilibrio. Otte
 		\delta \dot{\bar{R}}
 	\end{pmatrix}
 	=\begin{pmatrix}
-		\Gamma(F_P-1)-\gamma+\Gamma \bar{R}_{eq} & \bar{\Gamma}R_{eq}\\
-		\alpha\bar{R}_{eq}-\beta R_{eq} & \alpha R_{eq}-\beta \bar{R}_{eq}
+		\Gamma(F_P-2R_{eq})-\gamma-\bar{\Gamma} \bar{R}_{eq} & -\bar{\Gamma}R_{eq}\\
+		\alpha(F_{N}-\bar{R}_{eq})+\beta \bar{R}_{eq} & -\alpha R_{eq}+\beta R_{eq}
 	\end{pmatrix}
 	\begin{pmatrix}
 		\delta R\\
@@ -320,7 +320,7 @@ Partendo dal sistema:
 \end{equation}
 riscriviamo la seconda equazione come:
 \begin{equation} \label{B2}
-	R\bar{R}(\beta - \alpha)+RF_{N}-\beta F_{P}\bar{R}=0
+	R\bar{R}(\beta - \alpha)+R\alpha F_{N}-\beta F_{P}\bar{R}=0
 \end{equation}
 mentre dalla prima equazione possiamo ricavare $ \bar{R} $ in funzione di $ R $:
 \begin{equation}
@@ -328,10 +328,10 @@ mentre dalla prima equazione possiamo ricavare $ \bar{R} $ in funzione di $ R $:
 \end{equation}
 A questo punto basta sostituire $\bar{R} $ nella \ref{B2} e si ottiene:
 \begin{equation}
-	R(\beta - \alpha)\left[\frac{\Gamma}{\bar{\Gamma}}(F_{P}-R)+\frac{\gamma}{\bar{\Gamma}}\frac{F_{P}-R}{R}\right]+RF_{N}-\beta F_{P}\frac{\Gamma}{\bar{\Gamma}}(F_{P}-R)+\frac{\gamma}{\bar{\Gamma}}\frac{F_{P}-R}{R}=0
+	R(\beta - \alpha)\left[\frac{\Gamma}{\bar{\Gamma}}(F_{P}-R)+\frac{\gamma}{\bar{\Gamma}}\frac{F_{P}-R}{R}\right]+R\alpha F_{N}-\beta F_{P}\left[\frac{\Gamma}{\bar{\Gamma}}(F_{P}-R)+\frac{\gamma}{\bar{\Gamma}}\frac{F_{P}-R}{R}\right]=0
 \end{equation} 
 Portando a denominatore comune si ottiene:
 \begin{equation}
-	R^{3}(\beta - \alpha)\frac{\Gamma}{\bar{\Gamma}}-R^{2}\left(F_{N}+(\beta - \alpha)\frac{\Gamma}{\bar{\Gamma}}F_{P}-(\beta - \alpha)\frac{\gamma}{\bar{\Gamma}}+\beta F_{P}\frac{\Gamma}{\bar{\Gamma}}\right)-\frac{R}{\bar{\Gamma}}\left(\gamma (\beta - \alpha)F_{P}-\beta \Gamma F^{2}_{P}-\gamma\right)-\frac{\gamma}{\bar{\Gamma}}F_{P}=0
+	R^{3}(\beta - \alpha)\frac{\Gamma}{\bar{\Gamma}}-R^{2}\left(\alpha F_{N}+(\beta - \alpha)\frac{\Gamma}{\bar{\Gamma}}F_{P}-(\beta - \alpha)\frac{\gamma}{\bar{\Gamma}}+\beta F_{P}\frac{\Gamma}{\bar{\Gamma}}\right)-\frac{R}{\bar{\Gamma}}\left(\gamma (\beta - \alpha)F_{P}-\beta \Gamma F^{2}_{P}+\gamma\beta F_{P}\right)+\frac{\gamma\beta}{\bar{\Gamma}}F^{2}_{P}=0
 \end{equation}
 Risolvendo questo polinomio di terzo grado possiamo ricavare i punti di equilibrio.
