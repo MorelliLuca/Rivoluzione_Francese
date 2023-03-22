@@ -119,15 +119,8 @@ Eseguendo alcuni passaggi algebrici\footnote{Per tutti i passaggi si veda l'appe
 	R^{3}(\beta - \alpha)\frac{\Gamma}{\bar{\Gamma}}-R^{2}\left(\alpha F_{N}+(\beta - \alpha)\frac{\Gamma}{\bar{\Gamma}}F_{P}-(\beta - \alpha)\frac{\gamma}{\bar{\Gamma}}+\beta F_{P}\frac{\Gamma}{\bar{\Gamma}}\right)-\frac{R}{\bar{\Gamma}}\left(\gamma (\beta - \alpha)F_{P}-\beta \Gamma F^{2}_{P}+\gamma\beta F_{P}\right)+\frac{\gamma\beta}{\bar{\Gamma}}F^{2}_{P}=0
 	\label{equilibiro 3g}
 \end{equation}
-In quanto polinomio di grado dispari, a meno che $\alpha=\beta$, questo deve avere almeno una radice reale quindi possiamo affermare che esiste in generale un punto di equilibrio. Tale punto è calcolabile tramite le formule note per ottenere le radici di un polinomio di terzo grado.\\Qualora $\alpha=\beta$ invece la (\ref{equilibiro 3g}) si riduce ad un polinomio di secondo grado, ma si può osservare che questo possiede ancora radici reali se i parametri sono di ordini di grandezza comparabili. \\Infatti le radici di tale polinomio sono reali se vale
-\begin{equation*}
-	\frac{\gamma^2+\beta^2\Gamma^2+F_P^2}{2\beta\Gamma F_P\gamma+4\gamma F_P F_N \gamma{\Gamma}+4\gamma F_P^2\beta \Gamma}\geq1
-\end{equation*}
-e considerando $\epsilon=\max\{\gamma.\Gamma,\bar{\Gamma},\beta,F_P,F_N\}$, che per definizione delle quantità interessate risulta minore di $1$, allora si ha (a patto che $ \epsilon $ sia al massimo di un ordine di grandezza maggiore di $ \gamma $ e $ F_{P} $):
-\begin{equation*}
-	\frac{\gamma^2+\beta^2\Gamma^2+F_P^2}{2\beta\Gamma F_P\gamma+4\gamma F_P F_N \gamma{\Gamma}+4\gamma F_P^2\beta \Gamma}\geq\frac{\gamma^2+\beta^2\Gamma^2+F_P^2}{2\epsilon^4+4\epsilon^4+4\epsilon^5}\geq 1.
-\end{equation*}
-Per ogni set di parametri abbiamo quindi determinato i punti di equilibrio. Ottenuti questi è possibile studiare in un intorno di un punto di equilibrio la stabilità del sistema: detti $R_{eq},\ \bar{R}_{eq}$ rispettivamente il numero di rivoluzionari e reazionari all'equilibrio e studiando $\delta R(t)=R(t)- R_{eq}$ e $\delta \bar{R}(t)=\bar{R}(t)-\bar R_{eq}$ nel sistema linearizzato si ottiene:
+Le soluzioni di questa equazione devono però essere valori compresi tra $0$ e $1$ poichè abbiamo normalizzato la popolazione. La (1.5) rappresenta l'intersezione di due iperboli, a meno che $\alpha=\beta$ per cui un'iperbole degenera in una retta, in ogni caso abbiamo sempre osservato punti di intersezione al variare dei parametri e nella fattispecie esattamente solo uno di questi punti soddisfa sempre la condizione appena richiesta.\\
+Per ogni set di parametri abbiamo quindi determinato i punti di equilibrio e ottenuti questi ci è stato possibile studiare in un intorno di tali punti la stabilità del sistema: detti $R_{eq},\ \bar{R}_{eq}$ rispettivamente il numero di rivoluzionari e reazionari all'equilibrio e studiando $\delta R(t)=R(t)- R_{eq}$ e $\delta \bar{R}(t)=\bar{R}(t)-\bar R_{eq}$ nel sistema linearizzato si ottiene:
 \begin{equation}
 	\begin{pmatrix}
 		\delta \dot{R}\\ 

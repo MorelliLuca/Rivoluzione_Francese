@@ -9,8 +9,8 @@
 #include <vector>
 
 void Revolution() {
-  double const h{1e-2}, G{0.6}, g{0.1}, Ag{0.6}, beta{0.5}, alfa{0.5}, tf{30};
-  std::vector<double> Nr{.5}, Np{.5}, R{0}, AR{0};
+  double const h{1e-2}, G{.4}, g{0.3}, Ag{0.2}, beta{0.4}, alfa{0.6}, tf{300};
+  std::vector<double> Nr{.3}, Np{.7}, R{0}, AR{0};
   std::vector<double> k1(4, 0), k2(4, 0), k3(4, 0), k4(4, 0);
   std::vector<double> x = {Nr[0], Np[0], R[0], AR[0]};
   std::vector<double> t;
