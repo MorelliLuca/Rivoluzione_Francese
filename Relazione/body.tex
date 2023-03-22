@@ -114,12 +114,21 @@ $, e ponendo uguali a zero le derivate prime dei rivoluzionari e reazionari abbi
 		\alpha (F_{N}-\bar{R})R-\beta (F_{P}-R)\bar{R}=0
 	\end{cases}
 \end{equation}
-Eseguendo alcuni passaggi algebrici\footnote{Per tutti i passaggi si veda l'appendice B} si può ottenere $ \bar{R} $ in funzione di $ R $ e sostituendolo nella seconda equazione del sistema otteniamo il seguente polinomio di terzo grado:
+Eseguendo alcuni passaggi algebrici\footnote{Per tutti i passaggi si veda l'appendice B} si può ottenere $ \bar{R} $ in funzione di $ R $ e sostituendolo nella seconda equazione del sistema otteniamo la seguente equazione di terzo grado:
 \begin{equation}
-	R^{3}(\beta - \alpha)\frac{\Gamma}{\bar{\Gamma}}-R^{2}\left(\alpha F_{N}+(\beta - \alpha)\frac{\Gamma}{\bar{\Gamma}}F_{P}-(\beta - \alpha)\frac{\gamma}{\bar{\Gamma}}+\beta F_{P}\frac{\Gamma}{\bar{\Gamma}}\right)-\frac{R}{\bar{\Gamma}}\left(\gamma (\beta - \alpha)F_{P}-\beta \Gamma F^{2}_{P}+\gamma\beta F_{P}\right)+\frac{\gamma\beta}{\bar{\Gamma}}F^{2}_{P}=0
-	\label{equilibiro 3g}
+	R^{3}(\beta - \alpha)\frac{\Gamma}{\bar{\Gamma}}-R^{2}\left(\alpha F_{N}+(\beta - \alpha)\frac{\Gamma}{\bar{\Gamma}}F_{P}-(\beta - \alpha)\frac{\gamma}{\bar{\Gamma}}+\beta F_{P}\frac{\Gamma}{\bar{\Gamma}}\right)-\frac{R}{\bar{\Gamma}}\left(\gamma (\beta - \alpha)F_{P}-\beta \Gamma F^{2}_{P}+\gamma\beta F_{P}\right)+\frac{\gamma\beta}{\bar{\Gamma}}F^{2}_{P}
+	\label{equilibiro 3g}=0
 \end{equation}
-Le soluzioni di questa equazione devono però essere valori compresi tra $0$ e $1$ poichè abbiamo normalizzato la popolazione. La (1.5) rappresenta l'intersezione di due iperboli, a meno che $\alpha=\beta$ per cui un'iperbole degenera in una retta, in ogni caso abbiamo sempre osservato punti di intersezione al variare dei parametri e nella fattispecie esattamente solo uno di questi punti soddisfa sempre la condizione appena richiesta.\\
+Le soluzioni di \ref{equilibiro 3g} devono però essere valori compresi tra $0$ e $1$ poichè abbiamo normalizzato la popolazione. \'{E} facile dimostrare che il polinomio \ref{equilibiro 3g} ha almeno uno zero nell'intervallo $ \left[0,1\right] $, infatti per $ R=0 $ si riduce a:
+\begin{equation}
+	\frac{\gamma\beta}{\bar{\Gamma}}F^{2}_{P}\geq0\qquad \forall \gamma, \beta, \bar{\Gamma}, F_{P}
+\end{equation}
+mentre per $ R=1 $ otteniamo:
+\begin{equation}
+	-\alpha F_{N}\left[1+\frac{\Gamma+ \gamma}{\bar{\Gamma}}\right]\leq0\qquad \forall \gamma, \alpha, \Gamma, \bar{\Gamma}, F_{N}
+\end{equation}
+Per il teorema degli zeri, dato che la funzione assume valori di segno opposto agli estremi dell'intervallo, deve annullarsi in almeno un punto appartenente all'intervallo.
+\\La (1.5) rappresenta l'intersezione di due iperboli, a meno che $\alpha=\beta$ per cui un'iperbole degenera in una retta. In entrambi i casi abbiamo sempre osservato punti di intersezione al variare dei parametri e nella fattispecie esattamente solo uno di questi punti soddisfa sempre la condizione appena richiesta.\\
 Per ogni set di parametri abbiamo quindi determinato i punti di equilibrio e ottenuti questi ci è stato possibile studiare in un intorno di tali punti la stabilità del sistema: detti $R_{eq},\ \bar{R}_{eq}$ rispettivamente il numero di rivoluzionari e reazionari all'equilibrio e studiando $\delta R(t)=R(t)- R_{eq}$ e $\delta \bar{R}(t)=\bar{R}(t)-\bar R_{eq}$ nel sistema linearizzato si ottiene:
 \begin{equation}
 	\begin{pmatrix}
